@@ -18,12 +18,6 @@ class Events(commands.Cog):
     async def on_ready(self):
         print("Events is online")
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if any(word in message.content for word in etabuse):
-            await message.delete()
-            await message.channel.send("Hey, don't call Etrieus that!")
-
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
