@@ -1,4 +1,4 @@
-discord
+discord==1.6.0
+discord-pretty-help==1.2.1
 random
 os
- discord-pretty-help
