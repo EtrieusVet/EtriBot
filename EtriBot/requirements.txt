@@ -1,0 +1,4 @@
+discord
+discord-pretty-help==1.2.1
+random
+os
