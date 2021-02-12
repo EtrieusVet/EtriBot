@@ -1,4 +1,4 @@
 discord
 random
 os
-pretty_help
+ discord-pretty-help
