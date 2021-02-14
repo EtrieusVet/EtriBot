@@ -27,10 +27,11 @@ class Events(commands.Cog):
         ]
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
-            title=f'{member}',
+            title="Welcome to Bot Test".format(client),
             colour=discord.Colour.dark_gray()
         )
         pfp = member.avatar_url
+        embed.add_field(name=f"Username:", value=f'{member}')
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
         await channel.send(random.choice(join))
