@@ -59,6 +59,10 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
+    @commands.command(aliases=["dm"])
+    async def DM(self, ctx, *, msg, member: discord.Member = None):
+        author = ctx.message.author
+        await ctx.author.send(f'{msg}')
     @commands.command(aliases=["sd"], hidden=True)
     async def clear2(self, ctx, amount=20):
         await ctx.channel.purge(limit=amount)
