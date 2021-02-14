@@ -27,7 +27,7 @@ class Events(commands.Cog):
         ]
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
-            title="Welcome to Bot Test".format(client),
+            title=f'{member}',
             colour=discord.Colour.dark_gray()
         )
         pfp = member.avatar_url
