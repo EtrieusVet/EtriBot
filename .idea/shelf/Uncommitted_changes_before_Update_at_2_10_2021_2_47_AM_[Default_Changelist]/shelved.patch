@@ -1,0 +1,11 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+new file mode 100644
+--- /dev/null	(date 1612078946296)
++++ b/.env	(date 1612078946296)
+@@ -0,0 +1,1 @@
++TOKEN = ODA1MDM1OTU0ODg3ODUyMDUy.YBVCKA.gCNefTdNAnSwPdpzLqj3lHGEHyI
