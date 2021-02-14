@@ -21,11 +21,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at)
         embed.set_image(url=pfp)
+        embed.set_thumbnail(url=pfp)
         embed.add_field(name="Username:", value=f"{member}", inline=True)
         embed.add_field(name="ID:", value=f"{member.id}", inline=True)
         embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
         embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
-        embed.set_footer(text=f"Requested by:\n{ctx.author} \nID: {ctx.author.id}", icon_url=ctx.author.avatar_url)
+        embed.set_footer(text=f"Requested by:\n{ctx.author} \nID: {ctx.author.id}")
+
         await ctx.channel.send(content=None, embed=embed)
 
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
