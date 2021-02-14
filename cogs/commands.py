@@ -58,7 +58,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
-    @commands.command(aliases=["Test"])
+    @commands.command(aliases=["test"])
     async def Test(self,ctx):
         await ctx.channel.send("Yo")
 
