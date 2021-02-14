@@ -32,6 +32,7 @@ class Events(commands.Cog):
         )
         pfp = member.avatar_url
         embed.add_field(name=f"Username:", value=f'{member}')
+        embed.add_field(name="User ID:", value=f'{member.id}')
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
         await channel.send(random.choice(join))
@@ -40,7 +41,7 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         channel = discord.utils.get(member.guild.channels, name='hello-world')
-        await channel.send(f'{member.mention} has left the game')
+        await channel.send(f'{member.mention} has left the game.')
 
 
 def setup(client):
