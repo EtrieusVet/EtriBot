@@ -59,7 +59,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
-    @commands.command(aliases=["dm"])
+    @commands.command(aliases=["dm"], brief="Not available right at the moment.")
     async def DM(self, ctx, *, msg, member: discord.Member = None):
         author = ctx.message.author
         await member.send(f'{msg}')
