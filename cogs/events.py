@@ -32,7 +32,7 @@ class Events(commands.Cog):
         )
         pfp = member.avatar_url
         embed.add_field(name=f"Username:", value=f'{member}')
-        embed.add_field(name="User ID:", value=f'{member.id}')
+        embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
         await channel.send(random.choice(join))
