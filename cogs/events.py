@@ -18,6 +18,13 @@ class Events(commands.Cog):
     async def on_ready(self):
         print("Events is online")
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        channel = discord.utils.get(name="hello-world")
+        embed = discord.Embed(
+            title="Bot is online"
+        )
+        await channel.send(embed=embed)
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
