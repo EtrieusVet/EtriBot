@@ -20,7 +20,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         pfp = member.avatar_url
         
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at)
-        embed.set_image(url=pfp)
         embed.set_thumbnail(url=pfp)
         embed.add_field(name="Username:", value=f"{member}", inline=True)
         embed.add_field(name="ID:", value=f"{member.id}", inline=True)
