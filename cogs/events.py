@@ -20,7 +20,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        channel = discord.utils.get(name="hello-world")
+        channel = client.get_channel(806133569029931048)
         embed = discord.Embed(
             title="Bot is online"
         )
