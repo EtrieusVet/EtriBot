@@ -31,7 +31,7 @@ class Events(commands.Cog):
             colour=discord.Colour.dark_gray()
         )
         pfp = member.avatar_url
-        embed.set_image(url=pfp)
+        embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
         await channel.send(random.choice(join))
 
