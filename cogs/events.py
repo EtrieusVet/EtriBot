@@ -15,19 +15,7 @@ class Events(commands.Cog):
         self.client = client
 
     @commands.Cog.listener()
-    async def on_ready(self):
-        print("Events is online")
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        channel = client.get_channel(806133569029931048)
-        embed = discord.Embed(
-            title="Bot is online"
-        )
-        await channel.send(embed=embed)
-
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
+    async def on_member_join(self, member: discord.Member = None):
         join = [
             f'{member.mention} has joined the game.',
             f'The great {member.mention} has arrived.',
@@ -49,7 +37,7 @@ class Events(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_member_leave(self, member):
+    async def on_member_remove(self, member):
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game')
 
