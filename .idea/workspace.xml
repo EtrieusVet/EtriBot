@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Update">
-      <change beforePath="$PROJECT_DIR$/EtriBot/EtriBot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/cogs/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/cogs/commands.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/cogs/events.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/cogs/maxresdefault.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/cogs/memes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/generator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/images/example.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/poetry.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/pretty_help/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/pretty_help/navigation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/pretty_help/pretty_help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/pyproject.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/discord-pretty-help-master/tests/test_discord_pretty_help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,7 +420,35 @@
       <option name="project" value="LOCAL" />
       <updated>1613301139936</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Update">
+      <created>1613301890019</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1613301890019</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update">
+      <created>1613302057531</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1613302057531</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update">
+      <created>1613302170558</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1613302170558</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update">
+      <created>1613302303307</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1613302303307</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
