@@ -70,6 +70,10 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear2(self, ctx, amount=20):
         await ctx.channel.purge(limit=amount)
 
+    @commands.command(aliases=["ult"], hidden=True)
+    async def ult(self, ctx, amount=100):
+        await ctx.channel.purge(limit=amount)
+
     @commands.command(aliases=["r"], hidden=True)
     async def clear1(self, ctx, amount=3):
         await ctx.channel.purge(limit=amount)
