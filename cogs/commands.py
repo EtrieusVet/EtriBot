@@ -71,7 +71,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.channel.purge(limit=amount)
 
     @commands.command(aliases=["ult"], hidden=True)
-    async def ult(self, ctx, amount=100):
+    async def ult(self, ctx, amount=50):
         await ctx.channel.purge(limit=amount)
 
     @commands.command(aliases=["r"], hidden=True)
