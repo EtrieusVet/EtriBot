@@ -1,4 +1,4 @@
-### Imports ###1
+### Imports ###
 
 import random
 import discord
@@ -70,7 +70,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear2(self, ctx, amount=20):
         await ctx.channel.purge(limit=amount)
 
-    @commands.command(aliases=["ult"], hidden=True)
+    @commands.command(aliases=["alt"], hidden=True)
     async def ult(self, ctx, amount=50):
         await ctx.channel.purge(limit=amount)
 
