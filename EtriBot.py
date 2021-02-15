@@ -1,5 +1,5 @@
 ### Imports ###
-
+#
 import time
 import discord
 from discord.ext import commands
@@ -13,7 +13,6 @@ from pretty_help import Navigation, PrettyHelp
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
 client = commands.Bot(command_prefix='!', intents=intents,
                       help_command=PrettyHelp(color=discord.Color.dark_gray(), active_time=(float('inf'))))
-lol = "lol"
 
 ### Commands ###
 
