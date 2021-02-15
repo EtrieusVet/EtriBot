@@ -13,7 +13,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     async def on_ready(self):
         print("SCommands is online!")
 
-    @commands.command(aliases=["clear"])
+    @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)

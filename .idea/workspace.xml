@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,13 +265,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Update">
-      <created>1613300636611</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1613300636611</updated>
     </task>
     <task id="LOCAL-00020" summary="Update">
       <created>1613300951510</created>
@@ -609,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613432399352</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Updateee">
+      <created>1613432561242</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1613432561242</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -629,8 +629,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="I have no idea what im doing" />
     <MESSAGE value="Update" />
-    <MESSAGE value="Updateee" />
     <MESSAGE value="Upd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upd" />
+    <MESSAGE value="Updateee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
   </component>
 </project>
