@@ -18,4 +18,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         async def clear(self, ctx, amount=5):
             await ctx.channel.purge(limit=amount)
 
+def setup(client):
+    client.add_cog(SCommands(client))
+
 
