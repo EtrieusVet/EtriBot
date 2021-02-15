@@ -61,25 +61,5 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
-    @commands.command(aliases=["dm"], brief="Not available right at the moment.")
-    async def DM(self, ctx, *, msg, member: discord.Member = None):
-        author = ctx.message.author
-        await member.send(f'{msg}')
-
-    @commands.command(aliases=["sd"], hidden=True)
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def clear2(self, ctx, amount=20):
-        await ctx.channel.purge(limit=amount)
-
-    @commands.command(aliases=["alt"], hidden=True)
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def ult(self, ctx, amount=50):
-        await ctx.channel.purge(limit=amount)
-
-    @commands.command(aliases=["r"], hidden=True)
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def clear1(self, ctx, amount=3):
-        await ctx.channel.purge(limit=amount)
-
 def setup(client):
     client.add_cog(Commands(client))
