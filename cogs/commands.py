@@ -14,9 +14,9 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         print("Commands is online")
 
     @commands.command()
-    async def Luck(self, ctx, numb3 = None):
+    async def Luck(self, ctx, *, numb3 = int):
         num = random.randint(0, 10)
-        if isinstance(numb3, int):
+        if isinstance(num, int):
             if num == numb3:
                 await ctx.send(f'You have won! you rolled {numb3}, and the lucky number is {numb3}.')
             elif num != numb3:
