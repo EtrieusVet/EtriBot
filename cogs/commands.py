@@ -13,6 +13,18 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def on_ready(self):
         print("Commands is online")
 
+    @commands.command()
+    async def Luck(self, ctx, *, arg):
+        num = random.randint(0, 10)
+        if isinstance(num, int):
+            if num == arg:
+                await ctx.send(f'You have won! you rolled {arg}, and the lucky number is {num}.')
+            elif num != arg:
+                await ctx.send(f"You are unlucky... you typed {arg}, and the lucky number is {num}.")
+        else:
+            await ctx.send("That is not an integer.")
+
+
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member = None):
 
