@@ -16,7 +16,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command()
     async def Luck(self, ctx, *, numb3 = None):
         num = random.randint(0, 10)
-        if isinstance(num, int):
+        if isinstance(numb3, int):
             if num == numb3:
                 await ctx.send(f'You have won! you rolled {numb3}, and the lucky number is {numb3}.')
             elif num != numb3:
