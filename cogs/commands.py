@@ -56,10 +56,5 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         ]
         await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
 
-    @commands.command(aliases=["d"], hidden=True)
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def clear(self, ctx, amount=5):
-        await ctx.channel.purge(limit=amount)
-
 def setup(client):
     client.add_cog(Commands(client))
