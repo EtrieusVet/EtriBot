@@ -13,9 +13,9 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     async def on_ready(self):
         print("SCommands is online!")
 
-    @commands.command(aliases=["d"])
+    @commands.command(aliases=["clear"])
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def clear(self, ctx, amount=5):
+    async def Clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
 def setup(client):
