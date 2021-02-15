@@ -14,7 +14,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         print("Commands is online")
 
     @commands.command()
-    async def Luck(self, ctx, *, numb3):
+    async def Luck(self, ctx, *, numb3 = None):
         num = random.randint(0, 10)
         if isinstance(num, int):
             if num == numb3:
