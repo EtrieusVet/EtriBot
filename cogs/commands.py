@@ -61,23 +61,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         ]
         await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
 
-    @commands.command(aliases=["autoping"], brief="Autopings the user by a specified number.")
-    async def AutoPing(self, ctx, member: discord.Member = None, *, num):
-
-        channel = discord.utils.get(member.guild.channels, name='autopinger')
-        i = 0
-        limit = num
-        true_limit = 31
-        if float(limit) > true_limit:
-            await ctx.channel.send("The limit is 30.")
-        elif float(limit) < true_limit:
-            await ctx.send(f'Autopinging..')
-            while i < float(limit):
-                i += 1
-                await channel.send(f'{member.mention}')
-
-
-
 
 def setup(client):
     client.add_cog(Commands(client))
