@@ -25,12 +25,15 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
     @commands.command(brief="Displays a random cat picture", aliases=["cat"])
     async def Cat(self, ctx):
-        cats = ['https://media.discordapp.net/attachments/806444644002693170/806856386838528020/images_1.jpg',
-                'https://cdn.discordapp.com/attachments/806444644002693170/806856405343797268/cute-kitty-rub-my-belly.jpg',
-                'https://cdn.discordapp.com/attachments/806444644002693170/806856421832523816/download.jpg',
-                'https://cdn.discordapp.com/attachments/806444644002693170/806856437346861056/1df706ae30095ad907b9046cdaae2db6.jpg',
-                'https://cdn.discordapp.com/attachments/806444644002693170/806856471295033394/images.jpg',
-                'https://cdn.discordapp.com/attachments/806444644002693170/806856490571792384/The-Kitten-Checklist-1.png']
+        cats = ['https://media.discordapp.net/attachments/806444644002693170/811023336128643082/1800x1200_cat_relaxing_on_patio_other.jpg?width=710&height=473',
+                'https://media.discordapp.net/attachments/806444644002693170/811023633111711794/Z.png',
+                'https://cdn.discordapp.com/attachments/806444644002693170/811023715541319700/PersianCatFactsHistoryPersonalityandCare_ASPCAPetHealthInsurance_whitePersiancatrestingonabrownsofa-.png',
+                'https://media.discordapp.net/attachments/806444644002693170/811023755442520084/images.png',
+                'https://media.discordapp.net/attachments/806444644002693170/811023886199947324/Persian-cat-sleeping.png?width=709&height=473',
+                'https://media.discordapp.net/attachments/806444644002693170/811023794893226014/Culture-Grumpy-Cat-487386121.png?width=629&height=473',
+                'https://cdn.discordapp.com/attachments/806444644002693170/811023886199947324/Persian-cat-sleeping.png',
+                'https://media.discordapp.net/attachments/806444644002693170/811024268526616616/images.png',
+                'https://media.discordapp.net/attachments/806444644002693170/811024093713006612/kitten-looking-up-towards-the-camera-royalty-free-image-1592957811.png?width=474&height=473']
         embed = discord.Embed(
             title="Cat",
             color=discord.Color.blue()
