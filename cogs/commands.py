@@ -60,10 +60,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         ]
         await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
 
-    @commands.command()
-    async def Ping(self, ctx, member: discord.Member = None):
-        while True:
-            await ctx.channel.send(f'{member}')
+
 
 
 def setup(client):
