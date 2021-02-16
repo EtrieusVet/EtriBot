@@ -71,10 +71,10 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         if float(limit) > true_limit:
             await ctx.channel.send("The limit is 30.")
         elif float(limit) < true_limit:
+            await ctx.send(f'Autopinging..')
             while i < float(limit):
                 i += 1
                 await channel.send(f'{member.mention}')
-        await ctx.send(f'Autopinging..')
 
 
 
