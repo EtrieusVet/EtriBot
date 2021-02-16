@@ -28,6 +28,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
+
         await member.add_roles(mutedRole, reason=reason)
         await member.remove_roles(notmutedRole)
         await ctx.send(f'Muted {member.mention} for {reason}.')

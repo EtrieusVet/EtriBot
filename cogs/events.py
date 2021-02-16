@@ -48,9 +48,10 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def on_message(self, message: discord.Message):
+    async def on_message(self, ctx):
 
-        swear = message.content
+        message = ctx.message.content
+        swear = message
         censored = profanity.censor(swear)
 
         if censored != swear:

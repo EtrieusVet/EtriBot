@@ -1,5 +1,6 @@
 ### Imports ###
 
+import asyncio
 import random
 import discord
 from discord.ext import commands
@@ -73,6 +74,18 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             while i < float(limit):
                 i += 1
                 await channel.send(f'{member.mention}')
+
+    @commands.command(aliases=["identify"])
+    async def Identify(self, ctx, *, member= discord.Member):
+
+        author = ctx.message.author
+        guild = ctx.guild
+        male = discord.utils.get(ctx.guild.roles, name='Boy')
+        female = discord.utils.get(ctx.guild.roles, name='Girl')
+
+        await ctx.channel.send(f'{author.mention} has started the identification.')
+        await asyncio.sleep(2)
+        await ctx.channel.send("Are you male or female?\nM for Boy\nF for Girl")
 
 
 
