@@ -62,7 +62,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
 
     @commands.command(aliases=["autoping"], brief="Autopings the user by a specified number.")
-    async def AutoPing(self, ctx, member: discord.Member = None, *, num):
+    async def AutoPing(self, ctx, member: discord.Member = None, *, num = 0):
 
         channel = discord.utils.get(member.guild.channels, name='autopinger')
         i = 0
@@ -86,6 +86,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.channel.send(f'{author.mention} has started the identification.')
         await asyncio.sleep(2)
         await ctx.channel.send("Are you male or female?\nM for Boy\nF for Girl")
+
 
 
 
