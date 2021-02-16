@@ -1,6 +1,6 @@
 ### Imports ###
 
-
+from better_profanity import profanity
 import discord
 from discord.ext import commands
 import random
@@ -48,15 +48,11 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def on_message(self, message, member: discord.Member):
-        choice = ['Yes, yes you are you magnificent bastard.', 'No, you pathetic excuse of a human.']
-        if message.content == "Am I good?":
+    async def on_message(self, ctx, message):
+        if message.content == profanity.censor(message):
+            await ctx.channel.purge(limit=1)
+            await message.channel.send("Hey! No badwords")
 
-            if message.author == "Etrieus#0442":
-
-                await message.channel.send("Yes, yes you are you magnificent bastard.")
-            else:
-                await message.channel.send(random.choice(choice))
 
 def setup(client):
     client.add_cog(Events(client))
