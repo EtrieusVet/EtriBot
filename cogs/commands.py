@@ -74,6 +74,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             while i < float(limit):
                 i += 1
                 await channel.send(f'{member.mention}')
+        await ctx.send(f'Autopinging..')
 
 
 
