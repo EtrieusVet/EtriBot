@@ -47,7 +47,7 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def check(self, ctx, message = None):
+    async def on_message(self, ctx, message = None):
         if message.content == "Am I good?":
             await ctx.send("Yes, yes you are you magnificent bastard.")
 
