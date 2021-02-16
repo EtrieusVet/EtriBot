@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 
 
+
 class SCommands(commands.Cog, description="Commands only used by specific roles."):
 
     def __init__(self, client):
@@ -20,17 +21,12 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         await ctx.channel.purge(limit=amount)
 
     @commands.command(aliases=["mute"], brief="Mutes the specified moron.")
+    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided"):
 
         guild = ctx.guild
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
-
-        if not mutedRole:
-            mutedRole = await guild.create_role('Muted')
-
-            for channel in guild.channels:
-                await channel.set_permissions(mutedRole, speak=False, send_messages=False)
 
         await member.add_roles(mutedRole, reason=reason)
         await member.remove_roles(notmutedRole)
@@ -48,6 +44,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         await member.remove_roles(mutedRole)
         await ctx.send(f"Unmuted {member.mention}.")
         await member.send(f'You are unmuted, please behave yourself.')
+
 
 def setup(client):
     client.add_cog(SCommands(client))

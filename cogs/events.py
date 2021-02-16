@@ -54,7 +54,7 @@ class Events(commands.Cog):
         censored = profanity.censor(swear)
 
         if censored != swear:
-            if message.author == 'Vetrieus#0442':
+            if message.author == 'Etrieus#0442':
                 print("Exempted")
             await message.channel.purge(limit=1)
             await message.channel.send(f"Hey {message.author.mention} don't swear")
