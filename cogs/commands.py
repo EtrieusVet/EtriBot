@@ -31,8 +31,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.channel.send(content=None, embed=embed)
 
     @commands.command(aliases=["dm"], brief="Sends a DM to the user.")
-    async def DM(self, ctx, member: discord.Member, phrase):
-        await member.send(f'{ctx.author} says {phrase}')
+    async def DM(self, ctx, member: discord.Member, *, phrase):
+        await member.send(f'{phrase}')
 
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
     async def Question(self, ctx, *, que):
