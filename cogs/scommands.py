@@ -22,7 +22,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     async def Mute(self, ctx, member: discord.Member, *, reason=None):
         guild = ctx.guild
         mutedRole = discord.utils.get(guild.roles, name = 'Muted')
-
+        notmutedRole = discord.utils.get(guild.roles, name = "Member")
         if not mutedRole:
             mutedRole = await guild.create_role('Muted')
 
@@ -30,7 +30,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
                 await channel.set_permissions(mutedRole, speak=False, send_messages=False)
 
         await member.add_roles(mutedRole, reason=reason)
-        await member.remove_roles("Member", reason=reason)
+        await member.remove_roles(notmutedRole, member)
         await ctx.send(f'Muted {member.mention} for reason {reason}')
         await member.send(f'You are muted in the server {guild.name} for {reason}')
 
