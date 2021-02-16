@@ -46,6 +46,22 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         await ctx.send(f"Unmuted {member.mention}.")
         await member.send(f'You are unmuted, please behave yourself.')
 
+    @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")
+    @commands.has_any_role('Ze Creator')
+    async def UltraPing(self, ctx, member: discord.Member = None, *, num):
+
+        channel = discord.utils.get(member.guild.channels, name='autopinger')
+        i = 0
+        limit = num
+        true_limit = 1001
+        if float(limit) > true_limit:
+            await ctx.channel.send("The limit is 1000.")
+        elif float(limit) < true_limit:
+            await ctx.send(f'Autopinging..')
+            while i < float(limit):
+                i += 1
+                await channel.send(f'{member.mention}')
+
 
 def setup(client):
     client.add_cog(SCommands(client))

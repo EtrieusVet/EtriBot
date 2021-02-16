@@ -78,5 +78,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
 
 
+
 def setup(client):
     client.add_cog(Commands(client))
