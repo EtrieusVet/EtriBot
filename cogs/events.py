@@ -25,6 +25,8 @@ class Events(commands.Cog):
             f'{member.mention} crash landed and is stuck here.'
 
         ]
+        role = discord.utils.get(member.guild.roles, name='Member')
+
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
             title="Welcome to Bot Test".format(client),
@@ -35,6 +37,7 @@ class Events(commands.Cog):
         embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
+        await member.add_roles(role)
         await channel.send(random.choice(join))
 
 
