@@ -30,7 +30,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
                 await channel.set_permissions(mutedRole, speak=False, send_messages=False)
 
         await member.add_roles(mutedRole, reason=reason)
-        await member.remove_roles("Member")
+        await member.remove_roles("Member", reason=reason)
         await ctx.send(f'Muted {member.mention} for reason {reason}')
         await member.send(f'You are muted in the server {guild.name} for {reason}')
 
