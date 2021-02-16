@@ -43,13 +43,20 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
+
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message(self, message, member: discord.Member):
+        choice = ['Yes, yes you are you magnificent bastard.', 'No, you pathetic excuse of a human.']
         if message.content == "Am I good?":
-            await message.channel.send("Yes, yes you are you magnificent bastard.")
+
+            if message.author == "Etrieus#0442":
+
+                await message.channel.send("Yes, yes you are you magnificent bastard.")
+            else:
+                await message.channel.send(random.choice(choice))
 
 def setup(client):
     client.add_cog(Events(client))
