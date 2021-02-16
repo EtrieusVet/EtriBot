@@ -47,16 +47,6 @@ class Events(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
 
-    @commands.Cog.listener()
-    async def on_message(self, message: discord.Message):
-
-        swear = message.content
-        censored = profanity.censor(swear)
-
-        if censored != swear:
-            await message.channel.purge(limit=1)
-            await message.channel.send(f"Hey {message.author.mention} don't swear")
-
 
 
 
