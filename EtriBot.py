@@ -40,13 +40,18 @@ async def on_ready():
     await client.change_presence(activity=discord.Game('with Etrieus'))
 
 @client.event
-async def on_message(message):
+async def on_message(message, *, member):
+    dank = '270904126974590976'
     if message.content == "pls disguise":
         await message.channel.send("I am Dank Memer.")
-        await asyncio.sleep(1)
+        await asyncio.sleep(2)
         await message.channel.send("I send memes.")
-        await asyncio.sleep(1)
-        await message.channel.send(f"pls slap {message.author.mention}")
+        await asyncio.sleep(2)
+        await message.channel.send(f"Here, I'll demonstrate, type \"pls slap @(any user)\".")
+        await asyncio.sleep(4)
+        await message.channel.send(f'*slaps {member}* UwU.')
+
+
 for filename in os.listdir('./cogs'):
 
     if filename.endswith('.py'):
