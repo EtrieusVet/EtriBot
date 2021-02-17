@@ -47,7 +47,11 @@ class Events(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
 
+    @commands.Cog.listener()
+    async def on_message(self, message, ctx):
 
+        if message.content.startswith == ".":
+            await ctx.channel.purge(limit=2)
 
 
 
