@@ -6,6 +6,7 @@ from discord.ext import commands
 import os
 import pretty_help
 from pretty_help import Navigation, PrettyHelp
+import asyncio
 
 ### Variables ###
 
@@ -42,6 +43,10 @@ async def on_ready():
 async def on_message(message):
     if message.content == "pls disguise":
         await message.channel.send("I am Dank Memer.")
+        await asyncio.sleep(1)
+        await message.channel.send("I send memes.")
+        await asyncio.sleep(1)
+        await message.channel.send(f"pls slap {message.author.mention}")
 for filename in os.listdir('./cogs'):
 
     if filename.endswith('.py'):
