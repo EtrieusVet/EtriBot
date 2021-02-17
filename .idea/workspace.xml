@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/events.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,13 +266,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Updateee">
-      <created>1613387441500</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1613387441500</updated>
     </task>
     <task id="LOCAL-00050" summary="Update">
       <created>1613387666930</created>
@@ -609,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613484561186</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Updateee">
+      <created>1613559259545</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1613559259545</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

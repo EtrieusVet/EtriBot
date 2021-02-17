@@ -18,15 +18,16 @@ client = commands.Bot(command_prefix='!', intents=intents,
 
 
 @client.command(hidden=True)
-async def load_132(ctx, extension, amount=1):
+async def load(ctx, extension, amount=1):
     client.load_extension(f'cogs.{extension}')
     await ctx.channel.purge(limit=amount)
-
+    await ctx.channel.send(f"Loaded {extension}.")
 
 @client.command(hidden=True)
-async def unload_132(ctx, extension, amount=1):
+async def unload(ctx, extension, amount=1):
     client.unload_extension(f'cogs.{extension}')
     await ctx.channel.purge(limit=amount)
+    await ctx.channel.send(f"Unloaded {extension}.")
 
 
 ### Events ###

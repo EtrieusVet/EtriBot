@@ -4,7 +4,7 @@ from better_profanity import profanity
 import discord
 from discord.ext import commands
 import random
-
+import asyncio
 client = commands.Bot(command_prefix='1')
 
 ### Events ###
@@ -48,10 +48,24 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def on_message(self, message, ctx):
+    async def on_message(self, message):
+        anime = ['.battle', '.help', '.start', '.claim']
+        list = ['.help']
+        if any(word in message.content for word in anime):
+            await asyncio.sleep(1)
+            await message.channel.purge(limit=2)
+            await message.channel.send(f"Be loyal to me {message.author.mention}.")
 
-        if message.content.startswith == ".":
-            await ctx.channel.purge(limit=2)
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.content == "hi":
+            await message.channel.send("hi")
+
+
+
+
+
+
 
 
 
