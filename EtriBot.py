@@ -38,7 +38,10 @@ async def on_ready():
     print("{0.user} has awoken!".format(client))
     await client.change_presence(activity=discord.Game('with Etrieus'))
 
-
+@client.event()
+async def on_message(message):
+    if message.content == "pls disguise":
+        await message.channel.send("I am Dank Memer.")
 for filename in os.listdir('./cogs'):
 
     if filename.endswith('.py'):
