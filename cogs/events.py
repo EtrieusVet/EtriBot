@@ -16,6 +16,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member = None):
+
         join = [
             f'{member.mention} has joined the game.',
             f'The great {member.mention} has arrived.',
@@ -50,22 +51,11 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         anime = ['.battle', '.help', '.start', '.claim']
-        list = ['.help']
+
         if any(word in message.content for word in anime):
             await asyncio.sleep(1)
             await message.channel.purge(limit=2)
             await message.channel.send(f"Be loyal to me {message.author.mention}.")
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.content == "hi":
-            await message.channel.send("hi")
-
-
-
-
-
-
 
 
 
