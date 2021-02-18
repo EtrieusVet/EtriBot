@@ -50,7 +50,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        anime = ['.battle', '.help', '.start', '.claim']
+        anime = ['.battle', '.help', '.start', '.claim', '.inv', '.select', 'shop', 'stamina', 'stamin']
 
         if any(word in message.content for word in anime):
             await asyncio.sleep(1)
@@ -61,3 +61,5 @@ class Events(commands.Cog):
 
 def setup(client):
     client.add_cog(Events(client))
+
+.stamina
