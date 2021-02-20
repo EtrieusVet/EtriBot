@@ -51,15 +51,10 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
 
-        anime_bot = "571027211407196161"
-
+        anime_bot = 571027211407196161
         if message.author.id == anime_bot:
 
             await message.channel.purge(limit=1)
-            await message.channel.send(f"Shut up {message.author.mention}")
-
-
-
 
 def setup(client):
     client.add_cog(Events(client))
