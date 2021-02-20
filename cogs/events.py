@@ -50,12 +50,14 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        anime = ['.battle', '.help', '.start', '.claim', '.inv', '.select', 'shop', 'stamina', 'stamin']
 
-        if any(word in message.content for word in anime):
-            await asyncio.sleep(1)
-            await message.channel.purge(limit=2)
-            await message.channel.send(f"Be loyal to me {message.author.mention}.")
+        anime_bot = "571027211407196161"
+
+        if message.author.id == anime_bot:
+
+            await message.channel.purge(limit=1)
+            await message.channel.send(f"Shut up {message.author.mention}")
+
 
 
 
