@@ -41,20 +41,11 @@ class Events(commands.Cog):
         await member.add_roles(role)
         await channel.send(random.choice(join))
 
-
     @commands.Cog.listener()
     async def on_member_remove(self, member):
 
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-
-        anime_bot = 571027211407196161
-        if message.author.id == anime_bot:
-
-            await message.channel.purge(limit=1)
 
 def setup(client):
     client.add_cog(Events(client))

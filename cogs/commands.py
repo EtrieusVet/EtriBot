@@ -62,5 +62,9 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
 
 
+
+
+
+
 def setup(client):
     client.add_cog(Commands(client))
