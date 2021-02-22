@@ -42,18 +42,6 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         embed.set_image(url=random.choice(cats))
         await ctx.channel.send(embed=embed)
 
-    @commands.command(aliases=['chip'])
-    async def Chipper(self, ctx):
-        limit = 30
-        i = 0
-        while i < limit:
-            i += 1
-            await asyncio.sleep(2)
-            await ctx.send("Let us get ready to worship our awesome furry, Chip.")
-            await asyncio.sleep(2)
-            await ctx.send("O great Chipping Chip.")
-            await asyncio.sleep(2)
-            await ctx.send("Please forgive us.")
 
 
 def setup(client):
