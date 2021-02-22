@@ -48,6 +48,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         i = 0
         while i < limit:
             i += 1
+            await asyncio.sleep(2)
             await ctx.send("Let us get ready to worship our God, Chip.")
             await asyncio.sleep(2)
             await ctx.send("O great Chipping Chip.")
