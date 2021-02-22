@@ -17,6 +17,13 @@ intents = discord.Intents(messages=True, guilds=True, reactions=True, members=Tr
 client = commands.Bot(command_prefix=f'{command_prefix}', intents=intents,
                       help_command=PrettyHelp(color=discord.Color.dark_gray(), active_time=(float('inf'))))
 
+@client.command(brief="Changes the command prefix.")
+@commands.has_any_role("Ze Creator")
+async def Prefix(ctx, prefix):
+    command_prefix = prefix
+    await ctx.send(f"Command prefix is now {prefix}")
+    await ctx.send(f'{command_prefix}')
+
 ### Commands ###
 
 @client.command(hidden=True)
