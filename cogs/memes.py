@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-
+import asyncio
 
 class Memes(commands.Cog, description="Commands that are meme related."):
 
@@ -48,7 +48,11 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         i = 0
         while i < limit:
             i += 1
-            await ctx.send("#CHIPISGAE")
+            await ctx.send("Let us get ready to worship our God, Chip.")
+            await asyncio.sleep(2)
+            await ctx.send("O great Chipping Chip.")
+            await asyncio.sleep(2)
+            await ctx.send("Please forgive us.")
 
 
 def setup(client):

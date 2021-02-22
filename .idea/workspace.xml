@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/memes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/memes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,13 +266,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Updateee">
-      <created>1613393714514</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1613393714514</updated>
     </task>
     <task id="LOCAL-00064" summary="Upd">
       <created>1613431096974</created>
@@ -609,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613986768348</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Updateee">
+      <created>1614000550857</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1614000550858</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -630,8 +631,8 @@
     <MESSAGE value="I have no idea what im doing" />
     <MESSAGE value="Update" />
     <MESSAGE value="Upd" />
-    <MESSAGE value="Updateee" />
     <MESSAGE value="Woop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Woop" />
+    <MESSAGE value="Updateee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
   </component>
 </project>
