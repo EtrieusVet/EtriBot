@@ -42,5 +42,14 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         embed.set_image(url=random.choice(cats))
         await ctx.channel.send(embed=embed)
 
+    @commands.command(aliases=['chip'])
+    async def Chipper(self, ctx):
+        limit = 30
+        i = 0
+        while i < limit:
+            i += 1
+            await ctx.send("#CHIPISGAE")
+
+
 def setup(client):
     client.add_cog(Memes(client))

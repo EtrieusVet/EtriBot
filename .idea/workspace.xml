@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/EtriBot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/memes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/memes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
