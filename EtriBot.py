@@ -24,21 +24,6 @@ async def Prefix(ctx, prefix):
     await ctx.send(f"Command prefix is now {prefix}")
     await ctx.send(f'{command_prefix}')
 
-### Commands ###
-
-@client.command(hidden=True)
-async def load(ctx, extension, amount=1):
-    client.load_extension(f'cogs.{extension}')
-    await ctx.channel.purge(limit=amount)
-    await ctx.channel.send(f"Loaded {extension}.")
-
-@client.command(hidden=True)
-async def unload(ctx, extension, amount=1):
-    client.unload_extension(f'cogs.{extension}')
-    await ctx.channel.purge(limit=amount)
-    await ctx.channel.send(f"Unloaded {extension}.")
-
-
 ### Events ###
 
 @client.event

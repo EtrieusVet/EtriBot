@@ -20,9 +20,25 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     async def Clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=amount)
 
+    @commands.command(aliases=["kick"], brief="Kicks the specified user.")
+    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
+    async def Kick(self, ctx, member=discord.Member, *, reason="no reason provided."):
+
+        await member.kick(reason=reason)
+        await member.send(f"You were kicked for {reason}")
+        await ctx.send(f'{member.mention} was kicked for {reason}')
+
+    @commands.command(aliases=["ban"], brief="Kicks the specified user.")
+    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
+    async def Ban(self, ctx, member=discord.Member, *, reason="no reason provided."):
+
+        await member.kick(reason=reason)
+        await member.send(f"You were banned for {reason}.")
+        await ctx.send(f'{member.mention} was banned for {reason}.')
+
     @commands.command(aliases=["mute"], brief="Mutes the specified moron.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided"):
+    async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
         guild = ctx.guild
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')

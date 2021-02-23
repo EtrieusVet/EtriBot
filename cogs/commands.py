@@ -77,7 +77,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
                 i += 1
                 await channel.send(f'{member.mention}')
 
+    @commands.command(aliases=["suggest"])
+    async def Suggest(self, ctx, *, suggestion):
 
+        channel = discord.utils.get(ctx.guild.channels, name = "suggestions")
+        embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestions")
+        embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
+        await channel.send(embed=embed)
 
 
 def setup(client):
