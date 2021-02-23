@@ -49,6 +49,10 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
+        if member == None or member == ctx.message.author:
+            await ctx.send("You can't mute yourself.")
+            return
+
         guild = ctx.guild
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
