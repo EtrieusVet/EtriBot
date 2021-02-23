@@ -4,7 +4,6 @@ import discord
 from discord.ext import commands
 
 
-
 class SCommands(commands.Cog, description="Commands only used by specific roles."):
 
     def __init__(self, client):
@@ -22,18 +21,28 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
-    async def Kick(self, ctx, member=discord.Member, *, reason="no reason provided."):
+    async def Kick(self, ctx, member: discord.Member, *, reason="no reason provided."):
+
+        if member == None or member == ctx.message.author:
+
+            await ctx.send("You can't kick yourself.")
+            return
 
         await member.kick(reason=reason)
-        await member.send(f"You were kicked for {reason}")
-        await ctx.send(f'{member.mention} was kicked for {reason}')
+        await member.send(f"You were kicked for {reason}.")
+        await ctx.send(f'{member.mention} was kicked for {reason}.')
 
     @commands.command(aliases=["ban"], brief="Kicks the specified user.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
-    async def Ban(self, ctx, member=discord.Member, *, reason="no reason provided."):
+    async def Ban(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
-        await member.kick(reason=reason)
-        await member.send(f"You were banned for {reason}.")
+        if member == None or member == ctx.message.author:
+
+            await ctx.send("You can't ban yourself.")
+            return
+
+        await member.kick(reason)
+        await member.send(f'You are banned for {reason}.')
         await ctx.send(f'{member.mention} was banned for {reason}.')
 
     @commands.command(aliases=["mute"], brief="Mutes the specified moron.")
@@ -76,7 +85,6 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
             while i < float(limit):
                 i += 1
                 await channel.send(f'{member.mention}')
-
 
 
 def setup(client):
