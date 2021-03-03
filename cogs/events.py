@@ -40,7 +40,7 @@ class Events(commands.Cog):
         await channel.send(embed=embed)
         await member.add_roles(role)
         await channel.send(random.choice(join))
-        if member == "774644395428675585":
+        if member.id == 816600453549654026:
             await member.add_roles(muted)
             await member.remove_roles(role)
 
