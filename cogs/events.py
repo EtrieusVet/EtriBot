@@ -43,6 +43,7 @@ class Events(commands.Cog):
         if member.id == 816600453549654026:
             await member.add_roles(muted)
             await member.remove_roles(role)
+            await channel.send(f"{member.mention} you are muted.")
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
