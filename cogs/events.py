@@ -27,7 +27,7 @@ class Events(commands.Cog):
 
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
-
+        muted = discord.utils.get(member.guild.roles, name = "Muted")
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
             title="Welcome to Bot Test".format(client),
@@ -40,6 +40,9 @@ class Events(commands.Cog):
         await channel.send(embed=embed)
         await member.add_roles(role)
         await channel.send(random.choice(join))
+        if member == "774644395428675585":
+            await member.add_roles(muted)
+            await member.remove_roles(role)
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):

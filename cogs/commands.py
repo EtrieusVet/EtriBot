@@ -77,13 +77,17 @@ class Commands(commands.Cog, description="Commands that are for general purposes
                 i += 1
                 await channel.send(f'{member.mention}')
 
-    @commands.command(aliases=["suggest"])
+    @commands.command(aliases=["suggest"], brief="Type a suggestion to send on #suggestions")
     async def Suggest(self, ctx, *, suggestion):
 
         channel = discord.utils.get(ctx.guild.channels, name = "suggestions")
         embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestions")
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
         await channel.send(embed=embed)
+
+    @commands.command(aliases=["play"], brief="Plays a video from youtube")
+    async def Play(self, ctx, url: str):
+        voice
 
 
 def setup(client):

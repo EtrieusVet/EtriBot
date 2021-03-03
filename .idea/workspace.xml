@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/commands.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
       <recent name="C:\Users\User\Documents\GitHub\EtriBot\Isle Bot\cogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.EtriBot (1)">
+  <component name="RunManager" selected="Python.idk">
     <configuration name="EtriBot (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EtriBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -250,9 +250,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.idk" />
         <item itemvalue="Python.EtriBot (1)" />
         <item itemvalue="Python.events" />
-        <item itemvalue="Python.idk" />
         <item itemvalue="Python.commands (1)" />
         <item itemvalue="Python.EtriBot (2)" />
       </list>
@@ -266,13 +266,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Updateee">
-      <created>1613446022075</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1613446022076</updated>
     </task>
     <task id="LOCAL-00076" summary="Updateee">
       <created>1613450784685</created>
@@ -610,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614159358064</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Updateee">
+      <created>1614749587334</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1614749587334</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
