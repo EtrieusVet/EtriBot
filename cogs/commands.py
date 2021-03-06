@@ -85,9 +85,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
         await channel.send(embed=embed)
 
-    @commands.command(aliases=["play"], brief="Plays a video from youtube")
-    async def Play(self, ctx, url: str):
-        voice
+    @commands.command(aliases=["donut"], brief="Displays a Donut in ASC
 
 
 def setup(client):
