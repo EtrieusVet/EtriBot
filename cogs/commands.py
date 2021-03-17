@@ -1,5 +1,6 @@
 ### Imports ###
 
+
 import asyncio
 import random
 import discord
@@ -85,5 +86,9 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
         await channel.send(embed=embed)
 
+    @commands.command(aliases=["test"])
+    async def Test(self, ctx):
+        channel = ctx.author.voice.channel
+        await channel.connect()
 def setup(client):
     client.add_cog(Commands(client))
