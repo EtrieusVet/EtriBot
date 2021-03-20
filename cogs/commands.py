@@ -84,6 +84,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         channel = discord.utils.get(ctx.guild.channels, name = "suggestions")
         embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestions")
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
+        await ctx.channel.purge(limit=1)
+        await asyncio.sleep(2)
         await channel.send(embed=embed)
 
     @commands.command(aliases=["test"])
