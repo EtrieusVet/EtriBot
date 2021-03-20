@@ -1,6 +1,6 @@
 ### Imports ###
 
-
+import asyncio
 import discord
 from discord.ext import commands
 
@@ -18,6 +18,8 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Clear(self, ctx, amount=5):
+        await ctx.channel.purge(limit=1)
+        await asyncio.sleep(0.5)
         await ctx.channel.purge(limit=amount)
 
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
