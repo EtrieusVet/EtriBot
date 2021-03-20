@@ -54,6 +54,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
 
         if member == None or member == ctx.message.author:
+            await asyncio.sleep(0.5)
             await ctx.send("You can't mute yourself.")
             return
 
@@ -67,6 +68,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         await ctx.channel.purge(limit=1)
         await member.add_roles(mutedRole, reason=reason)
         await member.remove_roles(notmutedRole)
+        await ctx.channel.purge(limit=1)
         await ctx.send(f'Muted {member.mention} for {reason}.')
         await member.send(f'You are muted in the server {guild.name} for {reason}.')
 
