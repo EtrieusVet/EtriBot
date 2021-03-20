@@ -79,11 +79,11 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
         if notmutedRole in member.roles:
             await ctx.send(f"{member.mention} is not muted.")
-
-        await member.add_roles(notmutedRole)
-        await member.remove_roles(mutedRole)
-        await ctx.send(f"Unmuted {member.mention}.")
-        await member.send(f'You are unmuted, please behave yourself.')
+        else:
+            await member.add_roles(notmutedRole)
+            await member.remove_roles(mutedRole)
+            await ctx.send(f"Unmuted {member.mention}.")
+            await member.send(f'You are unmuted, please behave yourself.')
 
     @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")
     @commands.has_any_role('Ze Creator', 'Special Boiz')

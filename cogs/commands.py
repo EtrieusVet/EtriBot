@@ -1,6 +1,6 @@
 ### Imports ###
 
-
+import wikipedia
 import asyncio
 import random
 import discord
@@ -52,7 +52,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             "A big no.",
             "Negative.",
             "The stars have pointed: no.",
-            "I believe it is no."
+            "I believe it is no.",
             "My reply is no.",
             "Sadly, no.",
             "Nah.",
@@ -95,6 +95,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def Test(self, ctx):
         channel = ctx.author.voice.channel
         await channel.connect()
+
+    @commands.command(aliases=['search'])
+    async def Search(self, ctx, *, input):
+        search = wikipedia.page(input)
+        await ctx.send(search)
+
+
 
 def setup(client):
     client.add_cog(Commands(client))

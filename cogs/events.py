@@ -51,12 +51,6 @@ class Events(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        null = ['earrape', 'rape', 'EAR', 'moaning', 'MOANING']
-        if any(word in message.content for word in null):
-            await message.channel.purge(limit=1)
-            await message.channel.send(f"Playing this is not allowed {message.author.mention}")
 
 def setup(client):
     client.add_cog(Events(client))
