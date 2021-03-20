@@ -19,7 +19,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member = None):
 
-        author = ctx.message.author
         pfp = member.avatar_url
         
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at)
@@ -60,7 +59,12 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             "Nah.",
             "Very doubtful."
         ]
-        await ctx.send(f'Question: {que}\nAnswer: {random.choice(response)}')
+
+        embed = discord.Embed(color=discord.Color.dark_gray(), timestamp=ctx.message.created_at)
+        embed.add_field(name=f"Question: ", value=f"{que}", inline=False)
+        embed.add_field(name=f"Answer: ", value=f"{random.choice(response)}", inline=False)
+        embed.set_footer(text=f"Asked by: \n{ctx.author}")
+        await ctx.send(embed=embed)
 
     @commands.command(aliases=["autoping"], brief="Autopings the user by a specified number.")
     @commands.has_any_role('Ze Creator')
@@ -92,5 +96,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def Test(self, ctx):
         channel = ctx.author.voice.channel
         await channel.connect()
+
 def setup(client):
     client.add_cog(Commands(client))

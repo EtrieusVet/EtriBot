@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
-      <change afterPath="$PROJECT_DIR$/donut.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/EtriBot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +58,7 @@
       <recent name="C:\Users\User\Documents\GitHub\EtriBot\Isle Bot\cogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.scratch_7">
+  <component name="RunManager" selected="Python.EtriBot">
     <configuration name="EtriBot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EtriBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -254,8 +250,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scratch_7" />
         <item itemvalue="Python.EtriBot" />
+        <item itemvalue="Python.scratch_7" />
         <item itemvalue="Python.spammer" />
         <item itemvalue="Python.idk" />
         <item itemvalue="Python.donut" />
@@ -270,27 +266,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Updateee">
-      <created>1613456000209</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1613456000209</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Updateee">
-      <created>1613456107936</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1613456107936</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Updateee">
-      <created>1613459208613</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1613459208613</updated>
     </task>
     <task id="LOCAL-00086" summary="Updateee">
       <created>1613461281552</created>
@@ -614,7 +589,28 @@
       <option name="project" value="LOCAL" />
       <updated>1615010011899</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Update">
+      <created>1616234258348</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1616234258349</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Update">
+      <created>1616234974929</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1616234974929</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Update">
+      <created>1616237874796</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1616237874796</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -633,10 +629,10 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="I have no idea what im doing" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Upd" />
     <MESSAGE value="Woop" />
     <MESSAGE value="Updateee" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>
