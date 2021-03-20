@@ -50,6 +50,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
+
         if member == None or member == ctx.message.author:
             await ctx.send("You can't mute yourself.")
             return
@@ -57,6 +58,9 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         guild = ctx.guild
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
+
+        if mutedRole in member.roles:
+            await ctx.send(f"{member.mention} is already muted.")
 
         await ctx.channel.purge(limit=1)
         await member.add_roles(mutedRole, reason=reason)
@@ -70,6 +74,9 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         guild = ctx.guild
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
+
+        if notmutedRole in member.roles:
+            await ctx.send(f"{member.mention} is not muted.")
 
         await member.add_roles(notmutedRole)
         await member.remove_roles(mutedRole)
