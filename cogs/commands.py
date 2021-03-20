@@ -58,7 +58,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             "Nah.",
             "Very doubtful."
         ]
-
+        await ctx.channel.purge(limit=1)
         embed = discord.Embed(color=discord.Color.dark_gray(), timestamp=ctx.message.created_at)
         embed.add_field(name=f"Question: ", value=f"{que}", inline=False)
         embed.add_field(name=f"Answer: ", value=f"{random.choice(response)}", inline=False)
