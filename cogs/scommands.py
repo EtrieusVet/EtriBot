@@ -50,11 +50,10 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
     @commands.command(aliases=["mute"], brief="Mutes the specified moron.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-    async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided."):
+    async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided"):
 
 
         if member == None or member == ctx.message.author:
-            await asyncio.sleep(0.5)
             await ctx.send("You can't mute yourself.")
             return
 
@@ -64,13 +63,12 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
         if mutedRole in member.roles:
             await ctx.send(f"{member.mention} is already muted.")
-
-        await ctx.channel.purge(limit=1)
-        await member.add_roles(mutedRole, reason=reason)
-        await member.remove_roles(notmutedRole)
-        await ctx.channel.purge(limit=1)
-        await ctx.send(f'Muted {member.mention} for {reason}.')
-        await member.send(f'You are muted in the server {guild.name} for {reason}.')
+        else:
+            await ctx.channel.purge(limit=1)
+            await member.add_roles(mutedRole, reason=reason)
+            await member.remove_roles(notmutedRole)
+            await ctx.send(f'Muted {member.mention} for {reason}')
+            await member.send(f'You are muted in the server {guild.name} for {reason}.')
 
     @commands.command(aliases=["unmute"], brief="Unmutes the moron.")
     async def Unmute(self, ctx, member: discord.Member):
