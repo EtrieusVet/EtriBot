@@ -54,7 +54,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             "The stars have pointed: no.",
             "I believe it is no."
             "My reply is no.",
-            "My sources say no.",
+            "Sadly, no.",
             "Nah.",
             "Very doubtful."
         ]
