@@ -1,5 +1,6 @@
 ### Imports ###
 
+import wolframalpha
 import wikipedia
 import asyncio
 import random
@@ -98,9 +99,11 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=['search'])
     async def Search(self, ctx, *, input):
-        search = wikipedia.page(input)
-        await ctx.send(search)
-
+        wolf_client = wolframalpha.Client('WRH7AP-P4K4E4G3JG')
+        search = str(input)
+        res = wolf_client.query(search)
+        output = next(res.results).text
+        await ctx.send(output)
 
 
 def setup(client):

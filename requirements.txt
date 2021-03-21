@@ -2,3 +2,4 @@ discord
 discord-pretty-help
 better-profanity
 wikipedia
+wolframalpha
