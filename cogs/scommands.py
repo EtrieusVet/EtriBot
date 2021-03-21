@@ -62,6 +62,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
         if mutedRole in member.roles:
+            await ctx.channel.purge(limit=1)
             await ctx.send(f"{member.mention} is already muted.")
         else:
             await ctx.channel.purge(limit=1)
@@ -78,10 +79,12 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
         if notmutedRole in member.roles:
+            await ctx.channel.purge(limit=1)
             await ctx.send(f"{member.mention} is not muted.")
         else:
             await member.add_roles(notmutedRole)
             await member.remove_roles(mutedRole)
+            await ctx.channel.purge(limit=1)
             await ctx.send(f"Unmuted {member.mention}.")
             await member.send(f'You are unmuted, please behave yourself.')
 
