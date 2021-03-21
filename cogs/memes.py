@@ -12,17 +12,6 @@ class Memes(commands.Cog, description="Commands that are meme related."):
     async def on_ready(self):
         print("Memes is online")
 
-    @commands.command(brief="Displays a picture of the legendary Morshu in HD", aliases=["morshu"])
-    async def Morshu(self, ctx):
-        embed = discord.Embed(
-            title='Morshu',
-            colour=discord.Colour.blue()
-        )
-        embed.set_footer(text="This is a picture of Morshu RTX")
-        embed.set_image(
-            url='https://media.discordapp.net/attachments/806444644002693170/806444988543139840/maxresdefault.png?width=840&height=473')
-        await ctx.channel.send(embed=embed)
-
     @commands.command(brief="Displays a random cat picture", aliases=["cat"])
     async def Cat(self, ctx):
         cats = ['https://media.discordapp.net/attachments/806444644002693170/811023336128643082/1800x1200_cat_relaxing_on_patio_other.jpg?width=710&height=473',
