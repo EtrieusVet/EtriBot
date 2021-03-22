@@ -63,16 +63,27 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
         if mutedRole in member.roles:
+
+            embed = discord.Embed(timestamp=ctx.message.created_at, title="Mute Form", color=discord.Color.darker_gray())
+            embed.add_field(name=f"Mute failed", value=f"{member.mention} is already muted.")
+            embed.add_field(name="Mute Form requested by:", value=f"{ctx.message.author.mention}")
             await ctx.channel.purge(limit=1)
-            await ctx.send(f"{member.mention} is already muted.")
+            await ctx.channel.send(embed=embed)
+
         else:
-            await ctx.channel.purge(limit=1)
-            await member.add_roles(mutedRole, reason=reason)
+
+            embed = discord.Embed(timestamp=ctx.message.created_at, title="Mute Form", color=member.color)
+            embed.add_field(name="User:", value=f"{member.mention} has been muted.", inline=False)
+            embed.add_field(name="Reason:", value=f"{reason}.", inline=False)
+            embed.add_field(name="Mute Form requested by:", value=f"{ctx.message.author.mention}")
+            await member.add_roles(mutedRole)
             await member.remove_roles(notmutedRole)
-            await ctx.send(f'Muted {member.mention} for {reason}.')
+            await ctx.channel.purge(limit=1)
+            await ctx.channel.send(embed=embed)
             await member.send(f'You are muted in the server {guild.name} for {reason}.')
 
     @commands.command(aliases=["unmute"], brief="Unmutes the moron.")
+    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Unmute(self, ctx, member: discord.Member):
 
         guild = ctx.guild
@@ -81,17 +92,20 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
         if notmutedRole in member.roles:
 
-            embed = discord.Embed(timestamp=ctx.message.created_at, title="Unmute Failed", color=discord.Color.darker_gray())
+            embed = discord.Embed(timestamp=ctx.message.created_at, title="Unmute Form", color=discord.Color.darker_gray())
+            embed.add_field(name=f"Unmute failed", value=f"{member.mention} is not muted.")
             await ctx.channel.purge(limit=1)
-            embed.add_field(name=f"{member.mention} is not muted.")
             await ctx.channel.send(embed=embed)
 
         else:
 
+            embed = discord.Embed(timestamp=ctx.message.created_at, title="Unmute Form", color=member.color)
+            embed.add_field(name="User:", value=f"{member.mention} has been unmuted.", inline=False)
+            embed.add_field(name="Unmute form requested by:", value=f"{ctx.message.author.mention}")
             await member.add_roles(notmutedRole)
             await member.remove_roles(mutedRole)
             await ctx.channel.purge(limit=1)
-            await ctx.send(f"Unmuted {member.mention}.")
+            await ctx.channel.send(embed=embed)
             await member.send(f'You are unmuted, please behave yourself.')
 
     @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")

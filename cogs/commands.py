@@ -28,7 +28,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="ID:", value=f"{member.id}", inline=True)
         embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
         embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
-        embed.set_footer(text=f"Requested by:\n{ctx.author} \nID: {ctx.author.id}")
+        embed.add_field(name=f"Requested by:", value=f"{ctx.message.author.mention}")
+        embed.add_field(name="ID:", value=f"{ctx.author.id}")
 
         await ctx.channel.send(content=None, embed=embed)
 
@@ -90,7 +91,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def Suggest(self, ctx, *, suggestion):
 
         channel = discord.utils.get(ctx.guild.channels, name = "suggestions")
-        embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestions")
+        embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestion Form")
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
         await ctx.channel.purge(limit=1)
         await asyncio.sleep(0.5)
