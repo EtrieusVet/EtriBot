@@ -22,7 +22,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
         pfp = member.avatar_url
         
-        embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at)
+        embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at, title="User License")
         embed.set_thumbnail(url=pfp)
         embed.add_field(name="Username:", value=f"{member}", inline=True)
         embed.add_field(name="ID:", value=f"{member.id}", inline=True)
@@ -74,9 +74,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         i = 0
         limit = num
         true_limit = 31
+
         if float(limit) > true_limit:
+
             await ctx.channel.send("The limit is 30.")
+
         elif float(limit) < true_limit:
+
             await ctx.send(f'Autopinging..')
             while i < float(limit):
                 i += 1
@@ -99,12 +103,12 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=['search'])
     async def Search(self, ctx, *, input):
+
         wolf_client = wolframalpha.Client('WRH7AP-P4K4E4G3JG')
         search = str(input)
         res = wolf_client.query(search)
         output = next(res.results).text
         await ctx.send(output)
-
 
 def setup(client):
     client.add_cog(Commands(client))

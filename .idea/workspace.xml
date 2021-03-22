@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +59,7 @@
       <recent name="C:\Users\User\Documents\GitHub\EtriBot\Isle Bot\cogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.scratch_8">
+  <component name="RunManager" selected="Python.EtriBot">
     <configuration name="EtriBot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EtriBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -249,9 +251,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scratch_8" />
         <item itemvalue="Python.EtriBot" />
         <item itemvalue="Python.commands (1)" />
+        <item itemvalue="Python.scratch_8" />
         <item itemvalue="Python.idk" />
         <item itemvalue="Python.scratch_7" />
       </list>

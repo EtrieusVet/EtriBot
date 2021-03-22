@@ -17,6 +17,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
+
     async def Clear(self, ctx, amount=5):
         await ctx.channel.purge(limit=1)
         await asyncio.sleep(0.5)
@@ -79,9 +80,14 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
         if notmutedRole in member.roles:
+
+            embed = discord.Embed(timestamp=ctx.message.created_at, title="Unmute Failed", color=discord.Color.darker_gray())
             await ctx.channel.purge(limit=1)
-            await ctx.send(f"{member.mention} is not muted.")
+            embed.add_field(name=f"{member.mention} is not muted.")
+            await ctx.channel.send(embed=embed)
+
         else:
+
             await member.add_roles(notmutedRole)
             await member.remove_roles(mutedRole)
             await ctx.channel.purge(limit=1)
