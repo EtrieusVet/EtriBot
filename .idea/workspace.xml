@@ -268,20 +268,6 @@
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
     </task>
-    <task id="LOCAL-00098" summary="Updateee">
-      <created>1613559259545</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1613559259545</updated>
-    </task>
-    <task id="LOCAL-00099" summary="Updateee">
-      <created>1613566951795</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1613566951795</updated>
-    </task>
     <task id="LOCAL-00100" summary="Updateee">
       <created>1613567260080</created>
       <option name="number" value="00100" />
@@ -611,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616464906440</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="Updateee">
+      <created>1616465378401</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1616465378401</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Updateee">
+      <created>1616465387152</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1616465387152</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,9 +632,9 @@
     <MESSAGE value="I have no idea what im doing" />
     <MESSAGE value="Upd" />
     <MESSAGE value="Woop" />
-    <MESSAGE value="Updateee" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Updateee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

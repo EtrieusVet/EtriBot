@@ -111,12 +111,11 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         query = input
         url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}"
         response = requests.get(url)
-
-        if response.status_code == 501:
-
-            await ctx.send("Unable to process that query.")
-            return
-        await ctx.send(response.text)
+        embed = discord.Embed(title="EtriBot Search", timestamp=ctx.message.created_at, color=discord.Color.green())
+        embed.add_field(name="Query:", value=f"{query}", inline= False)
+        embed.add_field(name="Results:", value=response.text, inline= False)
+        embed.add_field(name="Requested by:", value=f"{ctx.message.author.mention}", inline= False)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def connect(self, ctx):
