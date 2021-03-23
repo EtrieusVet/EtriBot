@@ -111,10 +111,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         query = input
         url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}"
         response = requests.get(url)
+
         if response.status_code == 501:
+
             await ctx.send("Unable to process that query.")
             return
         await ctx.send(response.text)
+
     @commands.command()
     async def connect(self, ctx):
         channel = ctx.author.voice.channel
