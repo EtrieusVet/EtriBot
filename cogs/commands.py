@@ -108,8 +108,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def Search(self, ctx, *, input):
 
         wolf_client = wolframalpha.Client('WRH7AP-KHGXRWUY6X')
-        query = '+'.join(input)
-        url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}%3F"
+        query = input
+        url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}"
         response = requests.get(url)
         if response.status_code == 501:
             await ctx.send("Unable to process that query.")
