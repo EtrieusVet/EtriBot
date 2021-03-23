@@ -1,5 +1,6 @@
 ### Imports ###
 
+import requests
 import wolframalpha
 import wikipedia
 import asyncio
@@ -7,6 +8,7 @@ import random
 import discord
 from discord.ext import commands
 
+keys = 'WRH7AP-KHGXRWUY6X'
 class Commands(commands.Cog, description="Commands that are for general purposes."):
 
     def __init__(self, client):
@@ -105,12 +107,14 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=['search'])
     async def Search(self, ctx, *, input):
 
-        wolf_client = wolframalpha.Client('WRH7AP-P4K4E4G3JG')
-        search = str(input)
-        res = wolf_client.query(search)
-        output = next(res.results).text
-        await ctx.send(output)
-
+        wolf_client = wolframalpha.Client('WRH7AP-KHGXRWUY6X')
+        query = '+'.join(input)
+        url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}%3F"
+        response = requests.get(url)
+        if response.status_code == 501:
+            await ctx.send("Unable to process that query.")
+            return
+        await ctx.send(response.text)
     @commands.command()
     async def connect(self, ctx):
         channel = ctx.author.voice.channel
