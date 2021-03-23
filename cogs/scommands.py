@@ -45,7 +45,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
             await ctx.send("You can't ban yourself.")
             return
 
-        await member.kick(reason)
+        await member.ban(reason)
         await member.send(f'You are banned for {reason}.')
         await ctx.send(f'{member.mention} was banned for {reason}.')
 
