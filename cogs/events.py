@@ -40,7 +40,7 @@ class Events(commands.Cog):
         await channel.send(embed=embed)
         await member.add_roles(role)
         await channel.send(random.choice(join))
-        if member.id == 774644395428675585:
+        if member.id == 774644395428675585 or 681913273318244369:
             await member.add_roles(muted)
             await member.remove_roles(role)
             await channel.send(f"{member.mention} you are muted.")
