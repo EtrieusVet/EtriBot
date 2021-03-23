@@ -52,6 +52,7 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
 
+
 def setup(client):
     client.add_cog(Events(client))
 

@@ -111,5 +111,25 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         output = next(res.results).text
         await ctx.send(output)
 
+    @commands.command()
+    async def connect(self, ctx):
+        channel = ctx.author.voice.channel
+        await channel.connect()
+
+    @commands.command()
+    async def disc(self, ctx):
+        channel = ctx.author.voice.channel
+        await channel.vc.leave_channel()
+
+    @commands.command()
+    async def choose(self, ctx):
+        list = "tub", "krys", "kite", "amogus", "Saturn"
+        await ctx.send(random.choice(list))
+
+    @commands.command(aliases=["%"], brief="Shows a random percentage integer.")
+    async def Percentage(self,ctx):
+        percent = random.randint(0, 100)
+        string = str(percent)
+        await ctx.send(f"{string}%")
 def setup(client):
     client.add_cog(Commands(client))
