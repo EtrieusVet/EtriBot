@@ -99,12 +99,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await asyncio.sleep(0.5)
         await channel.send(embed=embed)
 
-    @commands.command(aliases=["test"])
-    async def Test(self, ctx):
-        channel = ctx.author.voice.channel
-        await channel.connect()
 
-    @commands.command(aliases=['search'])
+    @commands.command(aliases=['search'], brief="Searches the input into Wolframalpha.")
     async def Search(self, ctx, *, input):
 
         wolf_client = wolframalpha.Client('WRH7AP-KHGXRWUY6X')
@@ -117,25 +113,12 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="Requested by:", value=f"{ctx.message.author.mention}", inline= False)
         await ctx.send(embed=embed)
 
-    @commands.command()
-    async def connect(self, ctx):
-        channel = ctx.author.voice.channel
-        await channel.connect()
-
-    @commands.command()
-    async def disc(self, ctx):
-        channel = ctx.author.voice.channel
-        await channel.vc.leave_channel()
-
-    @commands.command()
-    async def choose(self, ctx):
-        list = "tub", "krys", "kite", "amogus", "Saturn"
-        await ctx.send(random.choice(list))
 
     @commands.command(aliases=["%"], brief="Shows a random percentage integer.")
     async def Percentage(self,ctx):
         percent = random.randint(0, 100)
         string = str(percent)
         await ctx.send(f"{string}%")
+
 def setup(client):
     client.add_cog(Commands(client))
