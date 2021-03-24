@@ -21,6 +21,7 @@ client = commands.Bot(command_prefix=f'{command_prefix}', intents=intents,
 @client.command(brief="Changes the command prefix.")
 @commands.has_any_role("Ze Creator")
 async def Prefix(ctx, prefix):
+
     command_prefix = prefix
     await ctx.send(f"Command prefix is now {prefix}")
     await ctx.send(f'{command_prefix}')
@@ -30,7 +31,7 @@ async def Prefix(ctx, prefix):
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with Etrieus'))
+    await client.change_presence(activity=discord.Game('with Krys'))
 
 for filename in os.listdir('./cogs'):
 
