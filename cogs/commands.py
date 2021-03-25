@@ -7,6 +7,7 @@ import asyncio
 import random
 import discord
 from discord.ext import commands
+from EtriBot import client
 
 keys = 'WRH7AP-KHGXRWUY6X'
 class Commands(commands.Cog, description="Commands that are for general purposes."):
@@ -18,12 +19,10 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def on_ready(self):
         print("Commands is online")
 
-
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member = None):
 
         pfp = member.avatar_url
-        
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at, title="User License")
         embed.set_thumbnail(url=pfp)
         embed.add_field(name="Username:", value=f"{member}", inline=True)
@@ -32,7 +31,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
         embed.add_field(name=f"Requested by:", value=f"{ctx.message.author.mention}")
         embed.add_field(name="ID:", value=f"{ctx.author.id}")
-
         await ctx.channel.send(content=None, embed=embed)
 
     @commands.command(aliases=["dm"], brief="Sends a DM to the user.")
@@ -41,6 +39,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
     async def Question(self, ctx, *, que):
+
         response = [
             "It is certain.",
             "It is decidedly so.",
@@ -99,7 +98,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await asyncio.sleep(0.5)
         await channel.send(embed=embed)
 
-
     @commands.command(aliases=['search'], brief="Searches the input into Wolframalpha.")
     async def Search(self, ctx, *, input):
 
@@ -113,12 +111,27 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="Requested by:", value=f"{ctx.message.author.mention}", inline= False)
         await ctx.send(embed=embed)
 
-
     @commands.command(aliases=["%"], brief="Shows a random percentage integer.")
     async def Percentage(self,ctx):
+
         percent = random.randint(0, 100)
         string = str(percent)
-        await ctx.send(f"{string}%")
+        if ctx.author.id == 744170833324408903:
+            await ctx.send("100%")
+        else:
+            await ctx.send(f"{string}%")
 
+    @commands.command(aliases=['play'])
+    async def Play(self, ctx, url: str):
+
+        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        channel = ctx.author.voice.channel
+
+
+        if channel == None:
+
+            await ctx.send("You are not in a voice channel.")
+
+        await channel.connect()
 def setup(client):
     client.add_cog(Commands(client))
