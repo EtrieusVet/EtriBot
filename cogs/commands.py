@@ -112,9 +112,13 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["%"], brief="Shows a random percentage integer.")
-    async def Percentage(self,ctx):
+    async def Percentage(self, ctx):
 
-        if ctx.author.id ==744170833324408903:
+        if ctx.author.id == 744170833324408903:
+            percent = random.randint(90, 100)
+            string = str(percent)
+            await ctx.send(f'{string}%')
+        elif ctx.author.id == 478148759264428032:
             percent = random.randint(90, 100)
             string = str(percent)
             await ctx.send(f'{string}%')
