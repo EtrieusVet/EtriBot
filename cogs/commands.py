@@ -115,7 +115,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     async def Percentage(self,ctx):
 
         if ctx.author.id ==744170833324408903:
-            percent = random.randint(60, 100)
+            percent = random.randint(90, 100)
             string = str(percent)
             await ctx.send(f'{string}%')
         else:
