@@ -116,10 +116,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
         percent = random.randint(0, 100)
         string = str(percent)
-        if ctx.author.id == 744170833324408903:
-            await ctx.send("100%")
-        else:
-            await ctx.send(f"{string}%")
+        await ctx.send(f"{string}%")
+
 
     @commands.command(aliases=['play'])
     async def Play(self, ctx, url: str):
