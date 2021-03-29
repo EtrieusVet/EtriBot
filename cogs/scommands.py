@@ -46,19 +46,26 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
     async def Ban(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
+        role = discord.utils.get(member.guild.roles, name="Anti BS Department")
         if member == None or member == ctx.message.author:
 
             await ctx.send("You can't ban yourself.")
             return
 
-        await member.ban(reason)
-        await member.send(f'You are banned for {reason}.')
-        await ctx.send(f'{member.mention} was banned for {reason}.')
+        if role in member.roles:
+
+            await ctx.send("You cannot ban your fellow peers.")
+
+        else:
+            await member.ban(reason)
+            await member.send(f'You are banned for {reason}.')
+            await ctx.send(f'{member.mention} was banned for {reason}.')
 
     @commands.command(aliases=["mute"], brief="Mutes the specified moron.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
     async def Mute(self, ctx, member: discord.Member, *, reason="no reason provided"):
 
+        role = discord.utils.get(member.guild.roles, name="Anti BS Department")
 
         if member == None or member == ctx.message.author:
             await ctx.send("You can't mute yourself.")
@@ -75,6 +82,10 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
             embed.add_field(name="Mute Form requested by:", value=f"{ctx.message.author.mention}")
             await ctx.channel.purge(limit=1)
             await ctx.channel.send(embed=embed)
+
+        if role in member.roles:
+
+            await ctx.send("You cannot ban your fellow peers.")
 
         else:
 
