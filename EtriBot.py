@@ -31,7 +31,7 @@ async def Prefix(ctx, prefix):
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with Krys'))
+    await client.change_presence(activity=discord.Game('with fire'))
 
 for filename in os.listdir('./cogs'):
 
