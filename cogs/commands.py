@@ -131,9 +131,5 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
         await channel.connect()
 
-    @commands.command(aliases=["reset"], brief="Top to the outlaster pro")
-    async def Reset(self, ctx, member: discord.Member, *, nick):
-        await member.edit(nick=nick)
-        await ctx.send(f"Nickname for {member.mention} has been changed to {nick}")
 def setup(client):
     client.add_cog(Commands(client))

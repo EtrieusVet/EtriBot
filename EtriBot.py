@@ -8,6 +8,7 @@ import os
 import pretty_help
 from pretty_help import Navigation, PrettyHelp
 import asyncio
+import random
 
 ### Variables ###
 
@@ -31,7 +32,7 @@ async def Prefix(ctx, prefix):
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with fire'))
+
 
 for filename in os.listdir('./cogs'):
 
