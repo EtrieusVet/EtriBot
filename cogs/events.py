@@ -53,20 +53,11 @@ class Events(commands.Cog):
         await channel.send(f'{member.mention} has left the game.')
 
     @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.content == 'pls eroast me':
-
-            insults = ['My phone battery lasts longer than your relationships.',
-                       'If I wanted a bitch, I would have bought a dog.',
-                       'The smartest thing that ever came out of your mouth was a penis.',
-                       'When karma comes back to punch you in the face, I want to be there in case it needs help.',
-                       'Don’t mistake my silence for weakness. No one plans a murder out loud. ',
-                       'You should wear a condom on your head. If you’re going to be a dick, you might as well dress like one.',
-                       'I know being a bitch is a tough job but someone has to do it. ',
-                       'I’d smack you, but that would be animal abuse.'
-                       ]
-
-            await message.channel.send(random.choice(insults))
+    async def on_message(self, message, ctx):
+        massage = message.content
+        embed = discord.Embed(title="Message")
+        embed.add_field(name="Message:", value=f"{massage}")
+        await message.channel.send(embed=embed)
 
 
 

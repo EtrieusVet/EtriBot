@@ -30,8 +30,8 @@ async def Prefix(ctx, prefix):
 
 @client.event
 async def on_ready():
-    print("{0.user} has awoken!".format(client))
 
+    print("{0.user} has awoken!".format(client))
     await client.change_presence(activity=discord.Game('with Xie'))
 
 for filename in os.listdir('./cogs'):
@@ -39,4 +39,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
-client.run('ODA1MDM1OTU0ODg3ODUyMDUy.YBVCKA.QT3bdnDWxycZoifs9mt3T6qYwiU')
+client.run('x8EoGWwbbAphpBE2ZUBW7H24--MBPP52')
