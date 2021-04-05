@@ -54,11 +54,13 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+
         massage = message.content
         embed = discord.Embed(title="Message Relay System", color=discord.Color.lighter_gray(), timestamp=message.created_at)
         embed.add_field(name="Message:", value=f"{massage}")
         embed.add_field(name="Author:", value=f"{message.author.mention}")
-        await message.channel.purge(limit=1)
+        if discord.User.bot == False:
+            await message.channel.purge(limit=1)
         await message.channel.send(embed=embed)
 
 
