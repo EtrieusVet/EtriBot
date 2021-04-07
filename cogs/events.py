@@ -30,7 +30,7 @@ class Events(commands.Cog):
         muted = discord.utils.get(member.guild.roles, name = "Muted")
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
-            title="Welcome to Bot Test".format(client),
+            title="Welcome to the server!".format(client),
             colour=discord.Colour.dark_gray()
         )
         pfp = member.avatar_url
@@ -51,7 +51,6 @@ class Events(commands.Cog):
 
         channel = discord.utils.get(member.guild.channels, name='hello-world')
         await channel.send(f'{member.mention} has left the game.')
-
 
 
 
