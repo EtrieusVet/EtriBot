@@ -131,5 +131,9 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
         await channel.connect()
 
+    @commands.command()
+    async def E(self, ctx):
+        await ctx.send("E")
+
 def setup(client):
     client.add_cog(Commands(client))
