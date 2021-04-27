@@ -132,7 +132,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         channel = discord.utils.get(member.guild.channels, name='autopinger')
         i = 0
         limit = num
-        true_limit = 10001
+        true_limit = 100000000000000000000000000
         if float(limit) > true_limit:
             await ctx.channel.send("The limit is 1000.")
         elif float(limit) < true_limit:
