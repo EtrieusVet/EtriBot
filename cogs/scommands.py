@@ -85,7 +85,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
         if role in member.roles:
 
-            await ctx.send("You cannot ban your fellow peers.")
+            await ctx.send("You cannot mute your fellow peers.")
 
         else:
 
