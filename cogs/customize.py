@@ -3,23 +3,22 @@ import time
 import discord
 from discord.ext import commands
 import os
-import pretty_help
-from pretty_help import Navigation, PrettyHelp
 import asyncio
+
+
+def get_prefix(client, message):
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
 
 class Customization(commands.Cog, description="Commands that will customize the server."):
 
     def __init__(self, client):
         self.client = client
 
-    def get_prefix(client, message):
-        with open('cogs/jfiles/prefixes.json', 'r') as f:
-            prefixes = json.load(f)
-
-        return prefixes[str(message.guild.id)]
-
     @commands.command(aliases=['prefix'], brief="Changes the server prefix.")
-    async def Prefix(ctx, prefix):
+    async def Prefix(self, ctx, prefix):
 
         with open('cogs/jfiles/prefixes.json', 'r') as f:
             prefixes = json.load(f)
