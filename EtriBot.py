@@ -13,7 +13,7 @@ import asyncio
 
 def get_prefix(client, message):
 
-    with open('prefixes.json', 'r') as f:
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
         prefixes = json.load(f)
 
     return prefixes[str(message.guild.id)]
@@ -34,39 +34,39 @@ async def on_ready():
 @client.event
 async def on_guild_join(guild):
 
-    with open('prefixes.json', 'r') as f:
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
 
         prefixes = json.load(f)
 
     prefixes[str(guild.id)] = '!'
 
-    with open('prefixes.json', 'w') as f:
+    with open('cogs/jfiles/prefixes.json', 'w') as f:
 
         json.dump(prefixes, f, indent=4)
 
 @client.event
 async def on_guild_remove(guild):
 
-    with open('prefixes.json', 'r') as f:
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
 
         prefixes = json.load(f)
 
     prefixes.pop(str(guild.id))
 
-    with open('prefixes.json', 'w') as f:
+    with open('cogs/jfiles/prefixes.json', 'w') as f:
 
         json.dump(prefixes, f, indent=4)
 
 @client.command(aliases = ['prefix'], brief = "Changes the server prefix.")
 async def Prefix(ctx, prefix):
 
-    with open('prefixes.json', 'r') as f:
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
 
         prefixes = json.load(f)
 
     prefixes[str(ctx.guild.id)] = prefix
 
-    with open('prefixes.json', 'w') as f:
+    with open('cogs/jfiles/prefixes.json', 'w') as f:
 
         json.dump(prefixes, f, indent=4)
 
