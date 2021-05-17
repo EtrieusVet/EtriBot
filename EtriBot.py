@@ -1,6 +1,6 @@
 ### Imports ###
 
-
+import json
 import time
 import discord
 from discord.ext import commands
@@ -11,20 +11,17 @@ import asyncio
 
 ### Variables ###
 
+def get_prefix(client, message):
 
-command_prefix = "!"
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
+
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix=f'{command_prefix}', intents=intents,
+client = commands.Bot(command_prefix=get_prefix, intents=intents,
                       help_command=PrettyHelp(color=discord.Color.dark_gray(), active_time=(float('inf'))))
-
-@client.command(brief="Changes the command prefix.")
-@commands.has_any_role("Ze Creator")
-async def Prefix(ctx, prefix):
-
-    command_prefix = prefix
-    await ctx.send(f"Command prefix is now {prefix}")
-    await ctx.send(f'{command_prefix}')
 
 ### Events ###
 
@@ -32,7 +29,49 @@ async def Prefix(ctx, prefix):
 async def on_ready():
 
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with Xie'))
+    await client.change_presence(activity=discord.Game('with you.'))
+
+@client.event
+async def on_guild_join(guild):
+
+    with open('prefixes.json', 'r') as f:
+
+        prefixes = json.load(f)
+
+    prefixes[str(guild.id)] = '!'
+
+    with open('prefixes.json', 'w') as f:
+
+        json.dump(prefixes, f, indent=4)
+
+@client.event
+async def on_guild_remove(guild):
+
+    with open('prefixes.json', 'r') as f:
+
+        prefixes = json.load(f)
+
+    prefixes.pop(str(guild.id))
+
+    with open('prefixes.json', 'w') as f:
+
+        json.dump(prefixes, f, indent=4)
+
+@client.command(aliases = ['prefix'], brief = "Changes the server prefix.")
+async def Prefix(ctx, prefix):
+
+    with open('prefixes.json', 'r') as f:
+
+        prefixes = json.load(f)
+
+    prefixes[str(ctx.guild.id)] = prefix
+
+    with open('prefixes.json', 'w') as f:
+
+        json.dump(prefixes, f, indent=4)
+
+    await ctx.send(f'The prefix for the server is now {prefix}')
+
 
 for filename in os.listdir('./cogs'):
 

@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
+      <change afterPath="$PROJECT_DIR$/cogs/prefixes.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EtriBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/EtriBot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/images/example.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/poetry.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/navigation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/pretty_help.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/tests/test_discord_pretty_help.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +44,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/cogs/scommands.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <hideBySeverity>
       <option value="15" />
@@ -46,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/prefixes.json" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -58,7 +73,7 @@
       <recent name="C:\Users\User\Documents\GitHub\EtriBot\Isle Bot\cogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.scratch_11">
+  <component name="RunManager" selected="Python.EtriBot">
     <configuration name="EtriBot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EtriBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -250,8 +265,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scratch_11" />
         <item itemvalue="Python.EtriBot" />
+        <item itemvalue="Python.scratch_11" />
         <item itemvalue="Python.scratch_10" />
         <item itemvalue="Python.donut" />
         <item itemvalue="Python.scratch_9" />
@@ -266,13 +281,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Updateee">
-      <created>1614141063814</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1614141063814</updated>
     </task>
     <task id="LOCAL-00122" summary="Updateee">
       <created>1614156605232</created>
@@ -610,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619538193218</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Updateee">
+      <created>1621211377340</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1621211377342</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

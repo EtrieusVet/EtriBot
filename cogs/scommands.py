@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 
 
-class SCommands(commands.Cog, description="Commands only used by specific roles."):
+class SCommands(commands.Cog, description="Commands only used by people with special roles."):
 
     def __init__(self, client):
         self.client = client
@@ -19,6 +19,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
 
     async def Clear(self, ctx, amount=5):
+
         await ctx.channel.purge(limit=1)
         await asyncio.sleep(0.5)
         await ctx.channel.purge(limit=amount)
@@ -28,6 +29,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
     async def Kick(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
         role = discord.utils.get(member.guild.roles, name = "Anti BS Department")
+
         if member == None or member == ctx.message.author:
 
             await ctx.send("You can't kick yourself.")
@@ -38,6 +40,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
             await ctx.send("You cannot kick your fellow peers.")
 
         else:
+
             await member.kick(reason=reason)
             await member.send(f"You were kicked for {reason}.")
             await ctx.send(f'{member.mention} was kicked for {reason}.')
@@ -57,6 +60,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
             await ctx.send("You cannot ban your fellow peers.")
 
         else:
+
             await member.ban(reason)
             await member.send(f'You are banned for {reason}.')
             await ctx.send(f'{member.mention} was banned for {reason}.')
@@ -68,6 +72,7 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
         role = discord.utils.get(member.guild.roles, name="Anti BS Department")
 
         if member == None or member == ctx.message.author:
+
             await ctx.send("You can't mute yourself.")
             return
 
@@ -127,15 +132,20 @@ class SCommands(commands.Cog, description="Commands only used by specific roles.
 
     @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")
     @commands.has_any_role('Ze Creator', 'Special Boiz')
+
     async def UltraPing(self, ctx, member: discord.Member = None, *, num):
 
         channel = discord.utils.get(member.guild.channels, name='autopinger')
         i = 0
         limit = num
-        true_limit = 100000000000000000000000000
+        true_limit = 101
+
         if float(limit) > true_limit:
+
             await ctx.channel.send("The limit is 1000.")
+
         elif float(limit) < true_limit:
+
             await ctx.send(f'Autopinging..')
             while i < float(limit):
                 i += 1
