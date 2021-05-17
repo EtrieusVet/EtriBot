@@ -31,5 +31,5 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         await ctx.send(f'The prefix for the server is now {prefix}')
 
-    def setup(client):
-        client.add_cog(Customization(client))
+def setup(client):
+    client.add_cog(Customization(client))
