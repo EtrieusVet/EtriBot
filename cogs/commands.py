@@ -1,5 +1,6 @@
 ### Imports ###
 
+import json
 import requests
 import wolframalpha
 import wikipedia
@@ -10,6 +11,15 @@ from discord.ext import commands
 from EtriBot import client
 
 keys = 'WRH7AP-KHGXRWUY6X'
+
+def get_prefix(client, message):
+
+    with open('cogs/jfiles/prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
+
+
 class Commands(commands.Cog, description="Commands that are for general purposes."):
 
     def __init__(self, client):
@@ -133,7 +143,19 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command()
     async def E(self, ctx):
+
         await ctx.send("E")
+
+    @commands.command(hidden = True)
+    async def Register(self, ctx):
+
+        with open('cogs/jfiles/prefixes.json', 'r') as f:
+            prefixes = json.load(f)
+
+        prefixes[str(ctx.guild.id)] = '!'
+
+        with open('cogs/jfiles/prefixes.json', 'w') as f:
+            json.dump(prefixes, f, indent=4)
 
 def setup(client):
     client.add_cog(Commands(client))

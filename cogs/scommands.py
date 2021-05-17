@@ -132,7 +132,6 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")
     @commands.has_any_role('Ze Creator', 'Special Boiz')
-
     async def UltraPing(self, ctx, member: discord.Member = None, *, num):
 
         channel = discord.utils.get(member.guild.channels, name='autopinger')
