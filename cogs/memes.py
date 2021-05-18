@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import random
 import asyncio
+import json
+import requests
 
 class Memes(commands.Cog, description="Commands that are meme related."):
 
@@ -14,22 +16,18 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
     @commands.command(brief="Displays a random cat picture", aliases=["cat"])
     async def Cat(self, ctx):
-        cats = ['https://media.discordapp.net/attachments/806444644002693170/811023336128643082/1800x1200_cat_relaxing_on_patio_other.jpg?width=710&height=473',
-                'https://media.discordapp.net/attachments/806444644002693170/811023633111711794/Z.png',
-                'https://cdn.discordapp.com/attachments/806444644002693170/811023715541319700/PersianCatFactsHistoryPersonalityandCare_ASPCAPetHealthInsurance_whitePersiancatrestingonabrownsofa-.png',
-                'https://media.discordapp.net/attachments/806444644002693170/811023755442520084/images.png',
-                'https://media.discordapp.net/attachments/806444644002693170/811023886199947324/Persian-cat-sleeping.png?width=709&height=473',
-                'https://media.discordapp.net/attachments/806444644002693170/811023794893226014/Culture-Grumpy-Cat-487386121.png?width=629&height=473',
-                'https://cdn.discordapp.com/attachments/806444644002693170/811023886199947324/Persian-cat-sleeping.png',
-                'https://media.discordapp.net/attachments/806444644002693170/811024268526616616/images.png',
-                'https://media.discordapp.net/attachments/806444644002693170/811024093713006612/kitten-looking-up-towards-the-camera-royalty-free-image-1592957811.png?width=474&height=473']
+
         embed = discord.Embed(
             title="Cat",
             color=discord.Color.blue()
         )
+        results = requests.get('https://api.thecatapi.com/v1/images/search').json()
+        content = results[0]['url']
         embed.set_footer(text="This is an adorable cat")
-        embed.set_image(url=random.choice(cats))
+        embed.set_image(url=content)
         await ctx.channel.send(embed=embed)
+
+
 
 
 

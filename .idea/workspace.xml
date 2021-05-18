@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
-      <change afterPath="$PROJECT_DIR$/cogs/prefixes.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EtriBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/EtriBot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/scommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/scommands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/generator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/images/example.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/poetry.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/navigation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pretty_help/pretty_help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/pyproject.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord-pretty-help-master/tests/test_discord_pretty_help.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Procfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/donut.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idk.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/prefixes.json" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cogs/jfiles/prefixes.json" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -281,55 +271,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Updateee">
-      <created>1614156605232</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1614156605232</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Updateee">
-      <created>1614159358064</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1614159358064</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Updateee">
-      <created>1614749587334</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1614749587334</updated>
-    </task>
-    <task id="LOCAL-00125" summary="Updateee">
-      <created>1614762994272</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1614762994273</updated>
-    </task>
-    <task id="LOCAL-00126" summary="Updateee">
-      <created>1614763825364</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1614763825365</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Updateee">
-      <created>1614763940712</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1614763940712</updated>
-    </task>
-    <task id="LOCAL-00128" summary="Updateee">
-      <created>1614765237991</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1614765237991</updated>
     </task>
     <task id="LOCAL-00129" summary="Updateee">
       <created>1614832063386</created>
@@ -625,7 +566,56 @@
       <option name="project" value="LOCAL" />
       <updated>1621211377342</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Updateee">
+      <created>1621218309745</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1621218309745</updated>
+    </task>
+    <task id="LOCAL-00172" summary="Updateee">
+      <created>1621218334262</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1621218334262</updated>
+    </task>
+    <task id="LOCAL-00173" summary="Updateee">
+      <created>1621218441539</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1621218441539</updated>
+    </task>
+    <task id="LOCAL-00174" summary="Update">
+      <created>1621247021119</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1621247021120</updated>
+    </task>
+    <task id="LOCAL-00175" summary="Update">
+      <created>1621249488211</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1621249488211</updated>
+    </task>
+    <task id="LOCAL-00176" summary="Update">
+      <created>1621249656607</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1621249656607</updated>
+    </task>
+    <task id="LOCAL-00177" summary="Update">
+      <created>1621253157467</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1621253157467</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -646,9 +636,9 @@
     <MESSAGE value="I have no idea what im doing" />
     <MESSAGE value="Upd" />
     <MESSAGE value="Woop" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Updateee" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

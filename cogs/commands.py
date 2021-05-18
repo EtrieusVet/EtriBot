@@ -157,5 +157,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         with open('cogs/jfiles/prefixes.json', 'w') as f:
             json.dump(prefixes, f, indent=4)
 
+
 def setup(client):
     client.add_cog(Commands(client))
