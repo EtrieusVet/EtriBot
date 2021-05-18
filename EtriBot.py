@@ -29,7 +29,7 @@ client = commands.Bot(command_prefix=get_prefix, intents=intents,
 async def on_ready():
 
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with you.'))
+    await client.change_presence(activity=discord.Game('with gим∆|Lxy.'))
 
 @client.event
 async def on_guild_join(guild):

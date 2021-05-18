@@ -17,12 +17,18 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
-
     async def Clear(self, ctx, amount=5):
 
         await ctx.channel.purge(limit=1)
         await asyncio.sleep(0.5)
         await ctx.channel.purge(limit=amount)
+
+    @Clear.error
+    async def cog_command_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please specify the amount of messages to be cleared.")
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("You do not have manage_messages permission.")
 
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
