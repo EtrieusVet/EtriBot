@@ -16,7 +16,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
         print("SCommands is online!")
 
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner,', 'Special Boiz')
+    @commands.has_permissions(manage_messages=True)
     async def Clear(self, ctx, amount=5):
 
         await ctx.channel.purge(limit=1)
