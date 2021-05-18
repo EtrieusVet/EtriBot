@@ -17,11 +17,9 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_permissions(manage_messages=True)
-    async def Clear(self, ctx, amount=5):
+    async def Clear(self, ctx, amount):
 
-        await ctx.channel.purge(limit=1)
-        await asyncio.sleep(0.5)
-        await ctx.channel.purge(limit=amount)
+        await ctx.channel.purge(limit=amount+1)
 
     @Clear.error
     async def cog_command_error(self, ctx, error):
