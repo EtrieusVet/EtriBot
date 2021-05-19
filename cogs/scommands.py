@@ -38,7 +38,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
     @commands.has_permissions(kick_members = True)
-    async def Kick(self, ctx, member: discord.Member, *, reason="no reason provided."):
+    async def Kick(self, ctx, member: discord.Member, *, reason="no reason provided"):
 
         role = discord.utils.get(member.guild.roles, name = "Anti BS Department")
 
@@ -54,7 +54,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
         else:
 
             await member.kick(reason=reason)
-            await member.send(f"You were kicked for {reason} in {ctx.message.guild.name}")
+            await member.send(f"You were kicked for {reason} in {ctx.message.guild.name}.")
             await ctx.send(f'{member.mention} was kicked for {reason}.')
 
     @Kick.error
