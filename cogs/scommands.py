@@ -23,9 +23,13 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @Clear.error
     async def cog_command_error(self, ctx, error):
+
         if isinstance(error, commands.MissingRequiredArgument):
+
             await ctx.send("Please specify the amount of messages to be cleared.")
+
         if isinstance(error, commands.MissingPermissions):
+
             await ctx.send("You do not have manage_messages permission.")
 
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
