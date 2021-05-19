@@ -19,7 +19,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
     @commands.has_permissions(manage_messages=True)
     async def Clear(self, ctx, amount):
 
-        await ctx.channel.purge(limit=amount+1)
+        await ctx.channel.purge(limit=amount)
 
     @Clear.error
     async def cog_command_error(self, ctx, error):
