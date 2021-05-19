@@ -17,12 +17,12 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
     @commands.command(aliases=["clear"], brief="Clears messages including the command.")
     @commands.has_permissions(manage_messages=True)
-    async def Clear(self, ctx, amount):
+    async def Clear(self, ctx, amount: int):
 
-        await ctx.channel.purge(limit=amount)
+        await ctx.channel.purge(limit=amount+1)
 
     @Clear.error
-    async def cog_command_error(self, ctx, error):
+    async def clear_error(self, ctx, error):
 
         if isinstance(error, commands.MissingRequiredArgument):
 
@@ -32,15 +32,19 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
 
             await ctx.send("You do not have manage_messages permission.")
 
+        if isinstance(error, commands.BotMissingPermissions):
+
+            await ctx.send("I do not have permissions for that.")
+
     @commands.command(aliases=["kick"], brief="Kicks the specified user.")
-    @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
+    @commands.has_permissions(kick_members = True)
     async def Kick(self, ctx, member: discord.Member, *, reason="no reason provided."):
 
         role = discord.utils.get(member.guild.roles, name = "Anti BS Department")
 
         if member == None or member == ctx.message.author:
 
-            await ctx.send("You can't kick yourself.")
+            await ctx.send("Why would you kick yourself?")
             return
 
         if role in member.roles:
@@ -50,8 +54,20 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
         else:
 
             await member.kick(reason=reason)
-            await member.send(f"You were kicked for {reason}.")
+            await member.send(f"You were kicked for {reason} in {ctx.message.guild.name}")
             await ctx.send(f'{member.mention} was kicked for {reason}.')
+
+    @Kick.error
+    async def kick_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please specify a user to be kicked.")
+
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("You do not have kick_members permission.")
+
+        if isinstance(error, commands.BotMissingPermissions):
+            await ctx.send("I do not have permissions for that.")
 
     @commands.command(aliases=["ban"], brief="Kicks the specified user.")
     @commands.has_any_role('Ze Creator', 'Anti BS Department', 'Ze alt of ze owner', 'Special Boiz')
@@ -84,7 +100,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
             await ctx.send("You can't mute yourself.")
             return
 
-        guild = ctx.guild
+        guild = ctx.message.guild.name
         mutedRole = discord.utils.get(member.guild.roles, name='Muted')
         notmutedRole = discord.utils.get(member.guild.roles, name="Member")
 
@@ -95,6 +111,7 @@ class SCommands(commands.Cog, description="Commands only used by people with spe
             embed.add_field(name="Mute Form requested by:", value=f"{ctx.message.author.mention}")
             await ctx.channel.purge(limit=1)
             await ctx.channel.send(embed=embed)
+            print(guild)
 
         if role in member.roles:
 

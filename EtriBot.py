@@ -13,10 +13,10 @@ import asyncio
 
 def get_prefix(client, message):
 
-    with open('cogs/jfiles/prefixes.json', 'r') as f:
+    with open('cogs/jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 
-    return prefixes[str(message.guild.id)]
+    return prefixes[str(message.guild.id)]['Prefix']
 
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
@@ -34,30 +34,46 @@ async def on_ready():
 @client.event
 async def on_guild_join(guild):
 
-    with open('cogs/jfiles/prefixes.json', 'r') as f:
+    with open('cogs/jfiles/servers.json', 'r') as f:
 
         prefixes = json.load(f)
 
-    prefixes[str(guild.id)] = '!'
+    prefixes[str(guild.id)] = {}
+    prefixes[str(guild.id)]['Prefix'] = '!'
 
-    with open('cogs/jfiles/prefixes.json', 'w') as f:
+
+    with open('cogs/jfiles/servers.json', 'w') as f:
 
         json.dump(prefixes, f, indent=4)
 
 @client.event
 async def on_guild_remove(guild):
 
-    with open('cogs/jfiles/prefixes.json', 'r') as f:
+    with open('cogs/jfiles/servers.json', 'r') as f:
 
         prefixes = json.load(f)
 
     prefixes.pop(str(guild.id))
 
-    with open('cogs/jfiles/prefixes.json', 'w') as f:
+    with open('cogs/jfiles/servers.json', 'w') as f:
 
         json.dump(prefixes, f, indent=4)
 
 
+@client.event
+async def on_message(message):
+
+    if client.user.mentioned_in(message):
+
+
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            prefixes = json.load(f)
+
+        prefix = prefixes[str(message.guild.id)]
+
+        await message.channel.send(f"The prefix is {prefix}")
+
+    await client.process_commands(message)
 
 for filename in os.listdir('./cogs'):
 
