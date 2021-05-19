@@ -69,7 +69,7 @@ async def on_message(message):
         with open('cogs/jfiles/servers.json', 'r') as f:
             prefixes = json.load(f)
 
-        prefix = prefixes[str(message.guild.id)]
+        prefix = prefixes[str(message.guild.id)]['Prefix']
 
         await message.channel.send(f"The prefix is {prefix}")
 
