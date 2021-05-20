@@ -1,10 +1,6 @@
 import json
-import time
 import discord
 from discord.ext import commands
-import os
-import asyncio
-
 
 def get_prefix(client, message):
     with open('cogs/jfiles/servers.json', 'r') as f:
@@ -56,16 +52,12 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
             welcomes = json.load(f)
 
-        welcomes[str(ctx.guild.id)]['Welcome'] = channel.id
+        welcomes[str(ctx.guild.id)]['Welcome'] = str(channel.id)
 
         with open('cogs/jfiles/servers.json', 'w') as f:
             json.dump(welcomes, f, indent=4)
 
         await ctx.send(f"The welcome channel for the server is now {channel}.")
-
-
-
-
 
 def setup(client):
     client.add_cog(Customization(client))

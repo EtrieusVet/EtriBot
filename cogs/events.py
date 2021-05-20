@@ -5,7 +5,17 @@ import discord
 from discord.ext import commands
 import random
 import asyncio
+import json
+
 client = commands.Bot(command_prefix='1')
+
+
+def get_welcome(client, message):
+    with open('cogs/jfiles/servers.json', 'r') as f:
+        welcomes = json.load(f)
+
+    return welcomes[str(message.guild.id)]['Welcome']
+
 
 ### Events ###
 
@@ -15,8 +25,12 @@ class Events(commands.Cog):
         self.client = client
 
     @commands.Cog.listener()
-    async def on_member_join(self, member: discord.Member = None):
+    async def on_member_join(self, member: discord.Member):
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            welcomes = json.load(f)
 
+        channel_id = welcomes[str(member.guild.id)]['Welcome']
+        channel = self.client.get_channel(int(channel_id))
         join = [
             f'{member.mention} has joined the game.',
             f'The great {member.mention} has arrived.',
@@ -27,33 +41,46 @@ class Events(commands.Cog):
 
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
-        muted = discord.utils.get(member.guild.roles, name = "Muted")
-        channel = discord.utils.get(member.guild.channels, name='hello-world')
         embed = discord.Embed(
             title="Welcome to the server!".format(client),
             colour=discord.Colour.dark_gray()
         )
+
         pfp = member.avatar_url
         embed.add_field(name=f"Username:", value=f'{member}')
         embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
         await member.add_roles(role)
-        await channel.send(random.choice(join))
-        if member.id == 774644395428675585:
-
-            await member.add_roles(muted)
-            await member.remove_roles(role)
-            await channel.send(f"{member.mention} you are muted.")
 
     @commands.Cog.listener()
-    async def on_member_remove(self, member):
+    async def on_member_remove(self, member: discord.Member):
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            welcomes = json.load(f)
 
-        channel = discord.utils.get(member.guild.channels, name='hello-world')
-        await channel.send(f'{member.mention} has left the game.')
+        channel_id = welcomes[str(member.guild.id)]['Welcome']
+        channel = self.client.get_channel(int(channel_id))
+        join = [
+            f'{member.mention} has left the game.',
+            f'The great {member.mention} left and took the damn cake.',
+            f'{member.mention} got out of the server.',
+            f'{member.mention} he left with the pizza.',
+            f'/leave {member.mention}.',
+            f'{member.mention} fixed his ship and flew away.'
 
+        ]
+        role = discord.utils.get(member.guild.roles, name='Member')
+        embed = discord.Embed(
+            title="Goodbye".format(client),
+            colour=discord.Colour.dark_gray()
+        )
+
+        pfp = member.avatar_url
+        embed.add_field(name=f"Username:", value=f'{member}')
+        embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
+        embed.set_thumbnail(url=pfp)
+        await channel.send(embed=embed)
 
 
 def setup(client):
     client.add_cog(Events(client))
-
