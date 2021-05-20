@@ -42,7 +42,7 @@ class Events(commands.Cog):
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
-            title=f"{member.guild}",
+            title='Welcome',
             colour=discord.Colour.dark_gray()
         )
 
@@ -71,7 +71,7 @@ class Events(commands.Cog):
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
-            title=f"{member.guild}".format(client),
+            title='Goodbye',
             colour=discord.Colour.dark_gray()
         )
 
