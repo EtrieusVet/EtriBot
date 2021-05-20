@@ -52,7 +52,7 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
             welcomes = json.load(f)
 
-        welcomes[str(ctx.guild.id)]['Welcome'] = str(channel.id)
+        welcomes[str(ctx.guild.id)]['Welcome'] = channel.id
 
         with open('cogs/jfiles/servers.json', 'w') as f:
             json.dump(welcomes, f, indent=4)

@@ -35,19 +35,19 @@ class Events(commands.Cog):
             f'{member.mention} has joined the game.',
             f'The great {member.mention} has arrived.',
             f'{member.mention} somehow got in with an invite.',
-            f'{member.mention} the pizza delivery guy.',
+            f'{member.mention} took a peek',
             f'/summon {member.mention}.',
             f'{member.mention} crash landed and is stuck here.'
 
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
-            title=f"Welcome to {member.guild}",
+            title=f"{member.guild}",
             colour=discord.Colour.dark_gray()
         )
 
         pfp = member.avatar_url
-        embed.add_field(name=f"Username:", value=f'{member}')
+        embed.add_field(name=f"Welcome to {member.guild}", value=random.choice(join))
         embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
@@ -60,23 +60,23 @@ class Events(commands.Cog):
 
         channel_id = welcomes[str(member.guild.id)]['Welcome']
         channel = self.client.get_channel(int(channel_id))
-        join = [
+        leave = [
             f'{member.mention} has left the game.',
             f'The great {member.mention} left and took the damn cake.',
             f'{member.mention} got out of the server.',
-            f'{member.mention} he left with the pizza.',
+            f'{member.mention} left with the damn pizza.',
             f'/leave {member.mention}.',
             f'{member.mention} fixed his ship and flew away.'
 
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
-            title="Goodbye".format(client),
+            title=f"{member.guild}".format(client),
             colour=discord.Colour.dark_gray()
         )
 
         pfp = member.avatar_url
-        embed.add_field(name=f"Username:", value=f'{member}')
+        embed.add_field(name=f"Goodbye", value=random.choice(leave))
         embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
