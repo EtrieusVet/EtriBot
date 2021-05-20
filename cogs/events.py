@@ -42,7 +42,7 @@ class Events(commands.Cog):
         ]
         role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
-            title="Welcome to the server!".format(client),
+            title=f"Welcome to {member.guild}",
             colour=discord.Colour.dark_gray()
         )
 
