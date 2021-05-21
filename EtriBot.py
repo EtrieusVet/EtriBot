@@ -26,7 +26,7 @@ client = commands.Bot(command_prefix=get_prefix, intents=intents,
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('with gим∆|Lxy.'))
+    await client.change_presence(activity=discord.Game('with your mom.'))
 
 
 @client.event
