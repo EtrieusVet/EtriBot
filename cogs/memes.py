@@ -32,7 +32,9 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
     @commands.command(brief="Shows memes from reddit.", aliases=['meme'])
     async def Meme(self, ctx):
+
         async with ctx.typing():
+
             posts = []
             reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
                                       client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
@@ -44,7 +46,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
             top = subreddit.top(limit=100)
 
-            for submission in top:
+            async for submission in top:
                 posts.append(submission)
 
             random_sub = random.choice(posts)
