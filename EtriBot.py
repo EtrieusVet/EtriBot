@@ -4,7 +4,7 @@ import json
 import discord
 from discord.ext import commands
 import os
-from pretty_help import Navigation, PrettyHelp
+from pretty_help import PrettyHelp
 
 
 ### Variables ###
