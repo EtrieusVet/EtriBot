@@ -46,7 +46,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
             top = subreddit.top
 
-            async for submission in top:
+            for submission in top:
                 posts.append(submission)
 
             random_sub = random.choice(posts)
