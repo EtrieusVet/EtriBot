@@ -3,4 +3,4 @@ discord-pretty-help
 better-profanity
 wikipedia
 wolframalpha
-praw
+asyncpraw
