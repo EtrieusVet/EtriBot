@@ -10,7 +10,7 @@ import discord
 from discord.ext import commands
 from EtriBot import client
 
-keys = 'WRH7AP-KHGXRWUY6X'
+wolframkey = 'WRH7AP-KHGXRWUY6X'
 
 def get_prefix(client, message):
 
@@ -111,7 +111,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=['search'], brief="Searches the input into Wolframalpha.")
     async def Search(self, ctx, *, input):
 
-        wolf_client = wolframalpha.Client('WRH7AP-KHGXRWUY6X')
+        wolf_client = wolframalpha.Client(wolframkey)
         query = input
         url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}"
         response = requests.get(url)
