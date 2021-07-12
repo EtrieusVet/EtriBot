@@ -50,7 +50,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 posts.append(submission)
 
             random_sub = random.choice(posts)
-
+            redditor = submission.author
             name = random_sub.title
             url = random_sub.url
 
@@ -60,6 +60,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
             )
             embed.set_footer(text=url)
             embed.set_image(url=url)
+            embed.add_field(name="Author:", value=redditor)
             await asyncio.sleep(3)
         await ctx.send(embed=embed)
 
