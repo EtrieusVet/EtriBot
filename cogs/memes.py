@@ -44,7 +44,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                                       )
             subreddit = reddit.subreddit('memes')
 
-            top = subreddit.top(limit=100)
+            top = subreddit.hot(limit=100)
 
             async for submission in top:
                 posts.append(submission)
