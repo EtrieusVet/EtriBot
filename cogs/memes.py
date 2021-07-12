@@ -4,8 +4,8 @@ import random
 import asyncio
 import json
 import requests
-import praw
 
+import asyncpraw
 
 class Memes(commands.Cog, description="Commands that are meme related."):
 
@@ -34,12 +34,12 @@ class Memes(commands.Cog, description="Commands that are meme related."):
     async def Meme(self, ctx):
         async with ctx.typing():
             posts = []
-            reddit = praw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
-                                 client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
-                                 username="Etrieus",
-                                 password="Ornestrio-132",
-                                 user_agent="Etrieus"
-                                 )
+            reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
+                                      client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
+                                      username="Etrieus",
+                                      password="Ornestrio-132",
+                                      user_agent="Etrieus"
+                                      )
             subreddit = reddit.subreddit('memes')
 
             top = subreddit.top(limit=100)
@@ -59,11 +59,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
             embed.set_footer(text=url)
             embed.set_image(url=url)
 
-
         await ctx.send(embed=embed)
-
-
-
 
 def setup(client):
     client.add_cog(Memes(client))
