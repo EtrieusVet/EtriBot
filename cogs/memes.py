@@ -32,32 +32,33 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
     @commands.command(brief="Shows memes from reddit.", aliases=['meme'])
     async def Meme(self, ctx):
+        async with ctx.typing():
+            posts = []
+            reddit = praw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
+                                 client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
+                                 username="Etrieus",
+                                 password="Ornestrio-132",
+                                 user_agent="Etrieus"
+                                 )
+            subreddit = reddit.subreddit('memes')
 
-        posts = []
-        reddit = praw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
-                             client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
-                             username="Etrieus",
-                             password="Ornestrio-132",
-                             user_agent="Etrieus"
-                             )
-        subreddit = reddit.subreddit('memes')
+            top = subreddit.top(limit=100)
 
-        top = subreddit.top(limit=100)
+            for submission in top:
+                posts.append(submission)
 
-        for submission in top:
-            posts.append(submission)
+            random_sub = random.choice(posts)
 
-        random_sub = random.choice(posts)
+            name = random_sub.title
+            url = random_sub.url
 
-        name = random_sub.title
-        url = random_sub.url
+            embed = discord.Embed(
+                title=name,
+                color=discord.Color.blue()
+            )
+            embed.set_footer(text=url)
+            embed.set_image(url=url)
 
-        embed = discord.Embed(
-            title=name,
-            color=discord.Color.blue()
-        )
-        embed.set_footer(text=url)
-        embed.set_image(url=url)
 
         await ctx.send(embed=embed)
 
