@@ -58,7 +58,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
             )
             embed.set_footer(text=url)
             embed.set_image(url=url)
-
+            await asyncio.sleep(3)
         await ctx.send(embed=embed)
 
 def setup(client):
