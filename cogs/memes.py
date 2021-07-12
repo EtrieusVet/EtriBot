@@ -42,9 +42,9 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                                       password="Ornestrio-132",
                                       user_agent="Etrieus"
                                       )
-            subreddit = reddit.subreddit('memes')
+            subreddit = await reddit.subreddit('memes')
 
-            top = subreddit.hot(limit=100)
+            top = subreddit.top
 
             async for submission in top:
                 posts.append(submission)
