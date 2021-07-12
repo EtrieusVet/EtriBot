@@ -56,7 +56,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
             title=name,
             color=discord.Color.blue()
         )
-        embed.set_footer(url)
+        embed.set_footer(text=url)
         embed.set_image(url=url)
 
         await ctx.send(embed=embed)
