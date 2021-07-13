@@ -29,7 +29,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
-    async def Reddit(self, ctx, subreddit = 'memes'):
+    async def Reddit(self, ctx, *, subreddit = 'memes'):
 
         async with ctx.typing():
 
