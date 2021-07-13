@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d73f3ee-c3ab-419a-b21a-9a3b776b9a62" name="Default Changelist" comment="Updateee">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/memes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/memes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,20 +269,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00165" summary="Updateee">
-      <created>1617277866615</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1617277866615</updated>
-    </task>
-    <task id="LOCAL-00166" summary="Update">
-      <created>1617629208880</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1617629208881</updated>
     </task>
     <task id="LOCAL-00167" summary="Updateee">
       <created>1617837769014</created>
@@ -612,7 +599,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626052867065</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="Updateee">
+      <created>1626053209432</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1626053209432</updated>
+    </task>
+    <task id="LOCAL-00215" summary="Update">
+      <created>1626140705307</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1626140705308</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -633,10 +634,10 @@
     <MESSAGE value="I have no idea what im doing" />
     <MESSAGE value="Upd" />
     <MESSAGE value="Woop" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Bruh." />
     <MESSAGE value="Updateee" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

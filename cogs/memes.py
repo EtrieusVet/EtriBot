@@ -4,15 +4,13 @@ import random
 import asyncio
 import json
 import requests
-
 import asyncpraw
 
 class Memes(commands.Cog, description="Commands that are meme related."):
 
     def __init__(self, client):
+
         self.client = client
-
-
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -31,7 +29,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows memes from reddit.", aliases=['meme'])
-    async def Meme(self, ctx):
+    async def Meme(self, ctx, subreddit = 'memes'):
 
         async with ctx.typing():
 
@@ -42,9 +40,9 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                                       password="Ornestrio-132",
                                       user_agent="Etrieus"
                                       )
-            subreddit = await reddit.subreddit('memes')
+            redditsubs = await reddit.subreddit(subreddit)
 
-            top = subreddit.top(limit=100)
+            top = redditsubs.top(limit=100)
 
             async for submission in top:
                 posts.append(submission)
