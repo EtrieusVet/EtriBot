@@ -28,8 +28,8 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         embed.set_image(url=content)
         await ctx.channel.send(embed=embed)
 
-    @commands.command(brief="Shows memes from reddit.", aliases=['meme'])
-    async def Meme(self, ctx, subreddit = 'memes'):
+    @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
+    async def Reddit(self, ctx, subreddit = 'memes'):
 
         async with ctx.typing():
 
@@ -51,15 +51,15 @@ class Memes(commands.Cog, description="Commands that are meme related."):
             redditor = random_sub.author
             name = random_sub.title
             url = random_sub.url
-
             embed = discord.Embed(
                 title=name,
                 color=discord.Color.blue()
             )
-            embed.set_footer(text=url)
+
             embed.set_image(url=url)
+            embed.add_field(name="Text:", value=random_sub.name)
             embed.add_field(name="Author:", value=redditor)
-            await asyncio.sleep(3)
+            embed.add_field(name="Link:", value=f'[Source]({url})')
         await ctx.send(embed=embed)
 
 def setup(client):

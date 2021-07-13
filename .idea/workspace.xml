@@ -61,7 +61,7 @@
       <recent name="C:\Users\User\Documents\GitHub\EtriBot\Isle Bot\cogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lol">
+  <component name="RunManager" selected="Python.EtriBot">
     <configuration name="EtriBot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EtriBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -253,8 +253,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.lol" />
         <item itemvalue="Python.EtriBot" />
+        <item itemvalue="Python.lol" />
         <item itemvalue="Python.lol.json" />
         <item itemvalue="Python.scratch_12" />
         <item itemvalue="Python.scratch_11" />
@@ -269,13 +269,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612006473707</updated>
-    </task>
-    <task id="LOCAL-00167" summary="Updateee">
-      <created>1617837769014</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1617837769015</updated>
     </task>
     <task id="LOCAL-00168" summary="Updateee">
       <created>1619337195822</created>
@@ -613,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626140705308</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="Updateee">
+      <created>1626141253237</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1626141253237</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -635,9 +635,9 @@
     <MESSAGE value="Upd" />
     <MESSAGE value="Woop" />
     <MESSAGE value="Bruh." />
-    <MESSAGE value="Updateee" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Updateee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updateee" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
