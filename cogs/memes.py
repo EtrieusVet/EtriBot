@@ -50,7 +50,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 posts.append(submission)
 
             random_sub = random.choice(posts)
-            redditor = submission.author
+            redditor = random_sub.author
             name = random_sub.title
             url = random_sub.url
 
