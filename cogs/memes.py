@@ -33,34 +33,39 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
         async with ctx.typing():
 
-            posts = []
-            reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
-                                      client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
-                                      username="Etrieus",
-                                      password="Ornestrio-132",
-                                      user_agent="Etrieus"
-                                      )
-            redditsubs = await reddit.subreddit(subreddit)
+            if subreddit == "hentai":
 
-            top = redditsubs.top(limit=100)
+                await ctx.send("God forbids you to touch this subreddit you damned subhuman trash.")
 
-            async for submission in top:
-                posts.append(submission)
+            else:
+                posts = []
+                reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
+                                          client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
+                                          username="Etrieus",
+                                          password="Ornestrio-132",
+                                          user_agent="Etrieus"
+                                          )
+                redditsubs = await reddit.subreddit(subreddit)
 
-            random_sub = random.choice(posts)
-            redditor = random_sub.author
-            name = random_sub.title
-            url = random_sub.url
-            embed = discord.Embed(
-                title=name,
-                color=discord.Color.blue()
-            )
+                top = redditsubs.top(limit=100)
 
-            embed.set_image(url=url)
-            embed.add_field(name="Text:", value=random_sub.name)
-            embed.add_field(name="Author:", value=redditor)
-            embed.add_field(name="Link:", value=f'[Source]({url})')
-        await ctx.send(embed=embed)
+                async for submission in top:
+                    posts.append(submission)
+
+                random_sub = random.choice(posts)
+                redditor = random_sub.author
+                name = random_sub.title
+                url = random_sub.url
+                embed = discord.Embed(
+                    title=name,
+                    color=discord.Color.blue()
+                )
+
+                embed.set_image(url=url)
+                embed.add_field(name="Text:", value=random_sub.name)
+                embed.add_field(name="Author:", value=redditor)
+                embed.add_field(name="Link:", value=f'[Source]({url})')
+                await ctx.send(embed=embed)
 
 def setup(client):
     client.add_cog(Memes(client))
