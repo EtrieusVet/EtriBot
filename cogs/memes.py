@@ -6,7 +6,6 @@ import json
 import requests
 import asyncpraw
 
-
 class Memes(commands.Cog, description="Commands that are meme related."):
 
     def __init__(self, client):
@@ -30,7 +29,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
-    async def Reddit(self, ctx, *, subreddit='memes'):
+    async def Reddit(self, ctx, *, subreddit = 'memes'):
 
         async with ctx.typing():
 
@@ -41,45 +40,49 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 await ctx.send("God forbids you to touch this subreddit you god damned subhuman trash.")
 
             else:
-                posts = []
-                reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
-                                          client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
-                                          username="Etrieus",
-                                          password="Ornestrio-132",
-                                          user_agent="Etrieus"
-                                          )
-                redditsubs = await reddit.subreddit(subreddit)
+                try:
+                    posts = []
+                    reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
+                                              client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
+                                              username="Etrieus",
+                                              password="Ornestrio-132",
+                                              user_agent="Etrieus"
+                                              )
+                    redditsubs = await reddit.subreddit(subreddit)
 
-                top = redditsubs.top(limit=100)
+                    top = redditsubs.top(limit=100)
 
-                async for submission in top:
-                    posts.append(submission)
+                    async for submission in top:
 
-                random_sub = random.choice(posts)
-                redditor = random_sub.author
-                name = random_sub.title
-                url = random_sub.url
-                embed = discord.Embed(
-                    title=name,
-                    color=discord.Color.blue()
-                )
+                        posts.append(submission)
 
-                post_string = isinstance(random_sub.selftext, str)
+                    random_sub = random.choice(posts)
+                    redditor = random_sub.author
+                    name = random_sub.title
+                    url = random_sub.url
+                    embed = discord.Embed(
+                        title=name,
+                        color=discord.Color.blue()
+                    )
 
-                embed.set_image(url=url)
-                embed.add_field(name="Text:", value=random_sub.name)
-                embed.add_field(name="Author:", value=redditor)
-                embed.add_field(name="Link:", value=f'[Source]({url})')
-                await ctx.send(embed=embed)
 
-                if post_string == "True":
-                    print("True")
-                    with open("Post.txt", "w") as file:
-                        file.write(random_sub.selftext)
 
-                    with open("Post.txt", "rb") as file:
-                        await ctx.send(file=discord.File(file, 'Post.txt'))
+                    embed.set_image(url=url)
+                    embed.add_field(name="Text:", value=random_sub.name)
+                    embed.add_field(name="Author:", value=redditor)
+                    embed.add_field(name="Link:", value=f'[Source]({url})')
+                    await ctx.send(embed=embed)
 
+                    if random_sub.selftext is None:
+                        print("No text found")
+                    else:
+                        with open("Post.txt", "w") as file:
+                            file.write(random_sub.selftext)
+
+                        with open("Post.txt", "rb") as file:
+                            await ctx.send(file = discord.File(file, 'Post.txt'))
+                except:
+                    ctx.send("Something went wrong")
 
 def setup(client):
     client.add_cog(Memes(client))
