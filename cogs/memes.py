@@ -6,6 +6,7 @@ import json
 import requests
 import asyncpraw
 
+
 class Memes(commands.Cog, description="Commands that are meme related."):
 
     def __init__(self, client):
@@ -29,7 +30,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
-    async def Reddit(self, ctx, *, subreddit = 'memes'):
+    async def Reddit(self, ctx, *, subreddit='memes'):
 
         async with ctx.typing():
 
@@ -52,7 +53,6 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 top = redditsubs.top(limit=100)
 
                 async for submission in top:
-
                     posts.append(submission)
 
                 random_sub = random.choice(posts)
@@ -72,15 +72,14 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 embed.add_field(name="Link:", value=f'[Source]({url})')
                 await ctx.send(embed=embed)
 
-                if post_string is True:
+                if post_string == "True":
 
                     with open("Post.txt", "w") as file:
-
                         file.write(random_sub.selftext)
 
                     with open("Post.txt", "rb") as file:
+                        await ctx.send(file=discord.File(file, 'Post.txt'))
 
-                        await ctx.send(file = discord.File(file, 'Post.txt'))
 
 def setup(client):
     client.add_cog(Memes(client))
