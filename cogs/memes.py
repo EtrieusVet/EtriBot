@@ -73,7 +73,8 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 await ctx.send(embed=embed)
 
                 if random_sub.selftext is None:
-                    print("No text found")
+                    ctx.send("No text found")
+
                 else:
                     with open("Post.txt", "w") as file:
                         file.write(random_sub.selftext)
