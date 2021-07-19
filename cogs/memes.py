@@ -33,9 +33,11 @@ class Memes(commands.Cog, description="Commands that are meme related."):
 
         async with ctx.typing():
 
-            if subreddit == "hentai":
+            forbidden = ['hentai', 'sex', 'porn', 'pornhub']
 
-                await ctx.send("God forbids you to touch this subreddit you damned subhuman trash.")
+            if any(word in subreddit for word in forbidden):
+
+                await ctx.send("God forbids you to touch this subreddit you god damned subhuman trash.")
 
             else:
                 posts = []
