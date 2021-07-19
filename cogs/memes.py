@@ -73,7 +73,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 await ctx.send(embed=embed)
 
                 if post_string == "True":
-
+                    print("True")
                     with open("Post.txt", "w") as file:
                         file.write(random_sub.selftext)
 
