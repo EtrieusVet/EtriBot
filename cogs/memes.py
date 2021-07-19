@@ -52,6 +52,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 top = redditsubs.top(limit=100)
 
                 async for submission in top:
+
                     posts.append(submission)
 
                 random_sub = random.choice(posts)
@@ -68,6 +69,12 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 embed.add_field(name="Author:", value=redditor)
                 embed.add_field(name="Link:", value=f'[Source]({url})')
                 await ctx.send(embed=embed)
+
+                with open("Post.txt", "w") as file:
+                    file.write(random_sub.selftext)
+
+                with open("Post.txt", "rb") as file:
+                    await ctx.send("Post",file = discord.File(file, 'Post.txt'))
 
 def setup(client):
     client.add_cog(Memes(client))
