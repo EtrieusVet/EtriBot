@@ -65,7 +65,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                         color=discord.Color.blue()
                     )
 
-
+                    texts = random_sub.selftext
 
                     embed.set_image(url=url)
                     embed.add_field(name="Text:", value=random_sub.name)
@@ -73,11 +73,12 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                     embed.add_field(name="Link:", value=f'[Source]({url})')
                     await ctx.send(embed=embed)
 
-                    if random_sub.selftext is None:
-                        print("No text found")
+                    if isinstance(texts, str) is False:
+                        await ctx.send("No text found")
+
                     else:
                         with open("Post.txt", "w") as file:
-                            file.write(random_sub.selftext)
+                            file.write(texts)
 
                         with open("Post.txt", "rb") as file:
                             await ctx.send(file = discord.File(file, 'Post.txt'))
