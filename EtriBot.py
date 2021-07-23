@@ -53,7 +53,7 @@ async def on_guild_join(guild):
         prefixes = json.load(f)
 
     repo = git.get_repo("EtrieusVet/EtriBot")
-    contents = repo.get_contents('cogs/jfiles/servers.json')
+    contents = repo.get_contents('cogs/jfiles/servers.json', ref='test')
     repo.update_file(contents.path, 'On Join', prefixes, contents.sha, branch='main')
 
 
