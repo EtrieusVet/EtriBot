@@ -4,3 +4,4 @@ better-profanity
 wikipedia
 wolframalpha
 asyncpraw
+PyGithub
