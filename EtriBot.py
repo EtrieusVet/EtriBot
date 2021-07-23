@@ -34,7 +34,7 @@ git = Github(login_or_token=token)
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('Terraria.'))
+    await client.change_presence(activity=discord.Game('Vesteria.'))
 
 
 @client.event
