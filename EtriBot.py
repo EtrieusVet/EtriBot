@@ -63,6 +63,9 @@ async def on_guild_remove(guild):
     with open('cogs/jfiles/servers.json', 'w') as f:
         json.dump(prefixes, f, indent=4)
 
+    repo = git.get_repo("EtrieusVet/EtriBot")
+    contents = repo.get_contents('cogs/jfiles/servers.json')
+    repo.update_file(contents.path, contents.sha, branch='main')
 
 @client.event
 async def on_message(message):
