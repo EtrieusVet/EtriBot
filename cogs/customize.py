@@ -1,6 +1,7 @@
 import json
 import discord
 from discord.ext import commands
+from github import Github
 
 def get_prefix(client, message):
     with open('cogs/jfiles/servers.json', 'r') as f:
@@ -20,9 +21,18 @@ class Customization(commands.Cog, description="Commands that will customize the 
     def __init__(self, client):
         self.client = client
 
+
+
     @commands.command(aliases=['prefix'], brief="Changes the server prefix.")
     @commands.has_permissions(manage_guild = True)
     async def Prefix(self, ctx, prefix):
+
+        with open('cogs/jfiles/credentials.json', 'r') as file:
+            data = json.load(file)
+            token = data['Github']['Token']
+
+        git = Github(login_or_token=token)
+
 
         with open('cogs/jfiles/servers.json', 'r') as f:
             prefixes = json.load(f)
@@ -31,6 +41,13 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         with open('cogs/jfiles/servers.json', 'w') as f:
             json.dump(prefixes, f, indent=4)
+
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            servers = f.read()
+
+        repo = git.get_repo("EtrieusVet/EtriBot")
+        contents = repo.get_contents('cogs/jfiles/servers.json')
+        repo.update_file(contents.path, 'On Join', servers, contents.sha, branch='main')
 
         await ctx.send(f'The prefix for the server is now {prefix}.')
 
@@ -47,6 +64,11 @@ class Customization(commands.Cog, description="Commands that will customize the 
     @commands.has_permissions(manage_guild = True)
     async def SetWelcome(self, ctx, channel: discord.TextChannel):
 
+        with open('cogs/jfiles/credentials.json', 'r') as file:
+            data = json.load(file)
+            token = data['Github']['Token']
+
+        git = Github(login_or_token=token)
 
         with open('cogs/jfiles/servers.json', 'r') as f:
 
@@ -56,6 +78,13 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         with open('cogs/jfiles/servers.json', 'w') as f:
             json.dump(welcomes, f, indent=4)
+
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            servers = f.read()
+
+        repo = git.get_repo("EtrieusVet/EtriBot")
+        contents = repo.get_contents('cogs/jfiles/servers.json')
+        repo.update_file(contents.path, 'On Join', servers, contents.sha, branch='main')
 
         await ctx.send(f"The welcome channel for the server is now {channel}.")
 
