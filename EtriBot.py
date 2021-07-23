@@ -28,6 +28,7 @@ with open('cogs/jfiles/credentials.json', 'r') as file:
 git = Github(login_or_token=token)
 
 
+
 ### Events ###
 
 @client.event
