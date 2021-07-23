@@ -77,7 +77,8 @@ async def on_guild_remove(guild):
 
 @client.event
 async def on_message(message):
-    if client.user.mentioned_in(message):
+    mention = f'<@!{client.user.id}>'
+    if message.content == mention:
         with open('cogs/jfiles/servers.json', 'r') as f:
             prefixes = json.load(f)
 
