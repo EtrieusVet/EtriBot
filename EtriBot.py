@@ -69,6 +69,7 @@ async def on_guild_remove(guild):
     contents = repo.get_contents('cogs/jfiles/servers.json')
     repo.update_file(contents.path, 'Update', prefixes, contents.sha, branch='main')
 
+
 @client.event
 async def on_message(message):
     if client.user.mentioned_in(message):
