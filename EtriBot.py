@@ -56,6 +56,7 @@ async def on_guild_join(guild):
     contents = repo.get_contents('cogs/jfiles/servers.json')
     repo.update_file(contents.path, 'On Join', prefixes, contents.sha, branch='main')
 
+
 @client.event
 async def on_guild_remove(guild):
 
