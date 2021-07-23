@@ -50,8 +50,7 @@ async def on_guild_join(guild):
         json.dump(prefixes, f, indent=4)
 
     with open('cogs/jfiles/servers.json', 'r') as f:
-        servers = json.load(f)
-        print(servers)
+        servers = f.read()
 
     repo = git.get_repo("EtrieusVet/EtriBot")
     contents = repo.get_contents('cogs/jfiles/servers.json')
@@ -70,8 +69,7 @@ async def on_guild_remove(guild):
         json.dump(prefixes, f, indent=4)
 
     with open('cogs/jfiles/servers.json', 'r') as f:
-        servers = json.load(f)
-        print(servers)
+        servers = f.read()
 
     repo = git.get_repo("EtrieusVet/EtriBot")
     contents = repo.get_contents('cogs/jfiles/servers.json')
