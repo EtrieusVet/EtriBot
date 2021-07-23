@@ -51,7 +51,7 @@ async def on_guild_join(guild):
 
     repo = git.get_repo("EtrieusVet/EtriBot")
     contents = repo.get_contents('cogs/jfiles/servers.json')
-    repo.update_file(contents.path, 'more tests', 'more tests', contents.sha, branch='main')
+    repo.update_file(contents.path, 'Update1', f, contents.sha, branch='main')
 
 @client.event
 async def on_guild_remove(guild):
@@ -67,7 +67,7 @@ async def on_guild_remove(guild):
 
     repo = git.get_repo("EtrieusVet/EtriBot")
     contents = repo.get_contents('cogs/jfiles/servers.json')
-    repo.update_file(contents.path, 'Updates', prefixes, contents.sha, branch='main')
+    repo.update_file(contents.path, 'Updates', f, contents.sha, branch='main')
 
 
 @client.event
