@@ -50,11 +50,11 @@ async def on_guild_join(guild):
         json.dump(prefixes, f, indent=4)
 
     with open('cogs/jfiles/servers.json', 'r') as f:
-        prefixes = json.load(f)
-
+        servers = json.load(f)
+        print(servers)
     repo = git.get_repo("EtrieusVet/EtriBot")
-    contents = repo.get_contents('cogs/jfiles/servers.json', ref='test')
-    repo.update_file(contents.path, 'On Join', prefixes, contents.sha, branch='main')
+    contents = repo.get_contents('cogs/jfiles/servers.json')
+    repo.update_file(contents.path, 'On Join', servers, contents.sha, branch='main')
 
 
 @client.event
