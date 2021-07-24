@@ -156,7 +156,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             await member.send(f'You are unmuted, please behave yourself.')
 
     @commands.command(aliases=["autoUlt"], brief="Autopings the user by a specified number.")
-    @commands.has_any_role('Ze Creator', 'Special Boiz')
+    @commands.has_permissions(manage_guild = True)
     async def UltraPing(self, ctx, member: discord.Member = None, *, num):
 
         channel = discord.utils.get(member.guild.channels, name='autopinger')
@@ -166,7 +166,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if float(limit) > true_limit:
 
-            await ctx.channel.send("The limit is 1000.")
+            await ctx.channel.send("The limit is 100.")
 
         elif float(limit) < true_limit:
 
@@ -175,6 +175,20 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
                 i += 1
                 await channel.send(f'{member.mention}')
 
+    @UltraPing.error
+    async def pinger_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingPermissions):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required role.')
+            embed.add_field(name='Missing Roles:', value='Manage Guild')
+            await ctx.send(embed=embed)
+
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
 
 def setup(client):
     client.add_cog(SCommands(client))
