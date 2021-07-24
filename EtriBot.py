@@ -1,4 +1,4 @@
-### Imports ###
+# Imports
 
 import json
 import discord
@@ -7,9 +7,11 @@ import os
 from pretty_help import PrettyHelp
 from github import Github
 
-### Variables ###
+# Variables
+
 
 def get_prefix(client, message):
+
     with open('cogs/jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 

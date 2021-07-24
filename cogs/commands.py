@@ -1,9 +1,8 @@
-### Imports ###
+# Imports
 
 import json
 import requests
 import wolframalpha
-import wikipedia
 import asyncio
 import random
 import discord
@@ -11,6 +10,7 @@ from discord.ext import commands
 from EtriBot import client
 
 wolframkey = 'WRH7AP-KHGXRWUY6X'
+
 
 def get_prefix(client, message):
 
@@ -30,7 +30,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         print("Commands is online")
 
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
-    async def Profile(self, ctx, member: discord.Member = None):
+    async def Profile(self, ctx, member: discord.Member):
 
         pfp = member.avatar_url
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at, title="User License")
@@ -43,9 +43,27 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="ID:", value=f"{ctx.author.id}")
         await ctx.channel.send(content=None, embed=embed)
 
+    @Profile.error
+    async def profile_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
+
     @commands.command(aliases=["dm"], brief="Sends a DM to the user.")
     async def DM(self, ctx, member: discord.Member, *, phrase):
         await member.send(f'{ctx.author}: {phrase}')
+
+    @DM.error
+    async def dm_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
 
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
     async def Question(self, ctx, *, que):
@@ -78,30 +96,24 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.set_footer(text=f"Asked by: \n{ctx.author}")
         await ctx.send(embed=embed)
 
-    @commands.command(aliases=["autoping"], brief="Autopings the user by a specified number.")
-    @commands.has_any_role('Ze Creator')
-    async def Autoping(self, ctx, member: discord.Member = None, *, num):
+    @Question.error
+    async def question_error(self, ctx, error):
 
-        channel = discord.utils.get(member.guild.channels, name='autopinger')
-        i = 0
-        limit = num
-        true_limit = 31
+        if isinstance(error, commands.MissingRequiredArgument):
 
-        if float(limit) > true_limit:
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
 
-            await ctx.channel.send("The limit is 30.")
 
-        elif float(limit) < true_limit:
-
-            await ctx.send(f'Autopinging..')
-            while i < float(limit):
-                i += 1
-                await channel.send(f'{member.mention}')
-
-    @commands.command(aliases=["suggest"], brief="Type a suggestion to send on #suggestions")
+    @commands.command(aliases=["suggest"], brief="Sends a suggestion to the suggestion channel.")
     async def Suggest(self, ctx, *, suggestion):
 
-        channel = discord.utils.get(ctx.guild.channels, name = "suggestions")
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            servers = json.load(f)
+
+        channel_id = servers[str(ctx.guild.id)]['Suggestion']
+        channel = self.client.get_channel(int(channel_id))
         embed = discord.Embed(timestamp=ctx.message.created_at, title="Suggestion Form")
         embed.add_field(name=f'{ctx.message.author}\'s suggestion', value=f"{suggestion}", inline=True)
         await ctx.channel.purge(limit=1)

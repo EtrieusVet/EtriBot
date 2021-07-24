@@ -3,25 +3,44 @@ import discord
 from discord.ext import commands
 from github import Github
 
-def get_prefix(client, message):
+
+def get_servers(client, message):
     with open('cogs/jfiles/servers.json', 'r') as f:
-        prefixes = json.load(f)
+        servers = json.load(f)
 
-    return prefixes[str(message.guild.id)]
-
-def get_welcome(client, message):
-    with open('cogs/jfiles/servers.json', 'r') as f:
-        welcomes = json.load(f)
-
-    return welcomes[str(message.guild.id)]
-
+    return servers[str(message.guild.id)]
 
 class Customization(commands.Cog, description="Commands that will customize the server."):
 
     def __init__(self, client):
         self.client = client
 
+    @commands.command(aliases=['setsuggestion'], brief='Sets a suggestion channel to the specified mentioned channel.')
+    @commands.has_permissions(manage_guild = True)
+    async def SetSuggestion(self, ctx, channel: discord.TextChannel):
 
+        with open('cogs/jfiles/credentials.json', 'r') as file:
+            data = json.load(file)
+            token = data['Github']['Token']
+
+        git = Github(login_or_token=token)
+
+        with open('cogs/jfiles/servers.json') as f:
+            servers = json.load(f)
+
+        servers[str(ctx.guild.id)]['Suggestion'] = channel.id
+
+        with open('cogs/jfiles/servers.json', 'w') as f:
+            json.dump(servers, f, indent=4)
+
+        with open('cogs/jfiles/servers.json', 'r') as f:
+            servers = f.read()
+
+        repo = git.get_repo("EtrieusVet/EtriBot")
+        contents = repo.get_contents('cogs/jfiles/servers.json')
+        repo.update_file(contents.path, 'On Join', servers, contents.sha, branch='main')
+
+        await ctx.send(f'The suggestion channel is now {channel}')
 
     @commands.command(aliases=['prefix'], brief="Changes the server prefix.")
     @commands.has_permissions(manage_guild = True)
@@ -35,12 +54,12 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
 
         with open('cogs/jfiles/servers.json', 'r') as f:
-            prefixes = json.load(f)
+            servers = json.load(f)
 
-        prefixes[str(ctx.guild.id)]['Prefix'] = prefix
+        servers[str(ctx.guild.id)]['Prefix'] = prefix
 
         with open('cogs/jfiles/servers.json', 'w') as f:
-            json.dump(prefixes, f, indent=4)
+            json.dump(servers, f, indent=4)
 
         with open('cogs/jfiles/servers.json', 'r') as f:
             servers = f.read()
@@ -56,6 +75,7 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please fill out the required argument.")
+
         if isinstance(error, commands.MissingPermissions):
             await ctx.send("You do not have permissions to use this command.")
 
@@ -72,12 +92,12 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         with open('cogs/jfiles/servers.json', 'r') as f:
 
-            welcomes = json.load(f)
+            servers = json.load(f)
 
-        welcomes[str(ctx.guild.id)]['Welcome'] = channel.id
+        servers[str(ctx.guild.id)]['Welcome'] = channel.id
 
         with open('cogs/jfiles/servers.json', 'w') as f:
-            json.dump(welcomes, f, indent=4)
+            json.dump(servers, f, indent=4)
 
         with open('cogs/jfiles/servers.json', 'r') as f:
             servers = f.read()

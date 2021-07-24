@@ -5,3 +5,4 @@ wikipedia
 wolframalpha
 asyncpraw
 PyGithub
+requests

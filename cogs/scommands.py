@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 
 
-class SCommands(commands.Cog, description="Commands only used by people with special roles."):
+class SCommands(commands.Cog, description="Commands for people with permissions."):
 
     def __init__(self, client):
         self.client = client
