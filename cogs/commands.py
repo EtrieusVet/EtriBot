@@ -11,7 +11,6 @@ from EtriBot import client
 
 wolframkey = 'WRH7AP-KHGXRWUY6X'
 
-
 def get_prefix(client, message):
 
     with open('cogs/jfiles/prefixes.json', 'r') as f:

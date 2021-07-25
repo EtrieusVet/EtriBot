@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 from github import Github
 
-
 def get_servers(client, message):
     with open('cogs/jfiles/servers.json', 'r') as f:
         servers = json.load(f)

@@ -1,9 +1,8 @@
-### Imports ###
+# Imports
 
 import asyncio
 import discord
 from discord.ext import commands
-
 
 class SCommands(commands.Cog, description="Commands for people with permissions."):
 
