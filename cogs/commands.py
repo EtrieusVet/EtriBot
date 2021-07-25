@@ -48,7 +48,15 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         if isinstance(error, commands.MissingRequiredArgument):
 
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
-            embed.add_field(name='Error Type:', value='Missing required argument.')
+            embed.add_field(name='Error Type:', value='Missing required argument.', inline=False)
+            embed.add_field(name='Error:', value='You did not fill the required argument.')
+            await ctx.send(embed=embed)
+
+        if isinstance(error, commands.BadArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Bad Argument.', inline=False)
+            embed.add_field(name='Error:', value='I could not process that.')
             await ctx.send(embed=embed)
 
     @commands.command(aliases=["dm"], brief="Sends a DM to the user.")

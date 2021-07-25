@@ -18,9 +18,15 @@ def get_prefix(client, message):
     return prefixes[str(message.guild.id)]['Prefix']
 
 
-intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix=get_prefix, intents=intents,
-                      help_command=PrettyHelp(color=discord.Color.dark_gray(), active_time=(float('inf'))))
+intents = discord.Intents(messages=True,
+                          guilds=True,
+                          reactions=True,
+                          members=True,
+                          presences=True)
+client = commands.Bot(command_prefix=get_prefix,
+                      intents=intents,
+                      help_command=PrettyHelp(color=discord.Color.dark_gray(),
+                      active_time=(float('inf'))))
 
 with open('cogs/jfiles/credentials.json', 'r') as file:
 
@@ -36,7 +42,6 @@ git = Github(login_or_token=token)
 @client.event
 async def on_ready():
     print("{0.user} has awoken!".format(client))
-    await client.change_presence(activity=discord.Game('Vesteria.'))
 
 
 @client.event
