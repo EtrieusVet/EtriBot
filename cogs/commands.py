@@ -120,6 +120,16 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         await asyncio.sleep(0.5)
         await channel.send(embed=embed)
 
+    @Suggest.error
+    async def suggest_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
+
+
     @commands.command(aliases=['search'], brief="Searches the input into Wolframalpha.")
     async def Search(self, ctx, *, input):
 
@@ -147,34 +157,19 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             string = str(percent)
             await ctx.send(f"{string}%")
 
-    @commands.command(aliases=['play'])
-    async def Play(self, ctx, url: str):
+    @Percentage.error
+    async def percentage_error(self, ctx, error):
 
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-        channel = ctx.author.voice.channel
+        if isinstance(error, commands.MissingRequiredArgument):
 
-
-        if channel == None:
-
-            await ctx.send("You are not in a voice channel.")
-
-        await channel.connect()
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
 
     @commands.command()
     async def E(self, ctx):
 
         await ctx.send("E")
-
-    @commands.command(hidden = True)
-    async def Register(self, ctx):
-
-        with open('cogs/jfiles/prefixes.json', 'r') as f:
-            prefixes = json.load(f)
-
-        prefixes[str(ctx.guild.id)] = '!'
-
-        with open('cogs/jfiles/prefixes.json', 'w') as f:
-            json.dump(prefixes, f, indent=4)
 
 
 def setup(client):
