@@ -72,6 +72,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             embed.add_field(name='Error Type:', value='Missing required argument.')
             await ctx.send(embed=embed)
 
+
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
     async def Question(self, ctx, *, que):
 
@@ -96,7 +97,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             "Nah.",
             "Very doubtful."
         ]
-        await ctx.channel.purge(limit=1)
+
         embed = discord.Embed(color=discord.Color.dark_gray(), timestamp=ctx.message.created_at)
         embed.add_field(name=f"Question: ", value=f"{que}", inline=False)
         embed.add_field(name=f"Answer: ", value=f"{random.choice(response)}", inline=False)

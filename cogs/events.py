@@ -40,7 +40,6 @@ class Events(commands.Cog):
             f'{member.mention} crash landed and is stuck here.'
 
         ]
-        role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
             title='Welcome',
             colour=discord.Colour.dark_gray()
@@ -51,7 +50,6 @@ class Events(commands.Cog):
         embed.add_field(name="User ID:", value=f'{member.id}', inline=False)
         embed.set_thumbnail(url=pfp)
         await channel.send(embed=embed)
-        await member.add_roles(role)
 
     @commands.Cog.listener()
     async def on_member_remove(self, member: discord.Member):
@@ -69,7 +67,6 @@ class Events(commands.Cog):
             f'{member.mention} fixed his ship and flew away.'
 
         ]
-        role = discord.utils.get(member.guild.roles, name='Member')
         embed = discord.Embed(
             title='Goodbye',
             colour=discord.Colour.dark_gray()
