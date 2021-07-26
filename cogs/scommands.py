@@ -95,7 +95,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             await member.kick(reason=reason)
             await ctx.send(embed=embed)
 
-    @commands.command(aliases=['kick'], brief='Kicks the specified user.')
+    @commands.command(aliases=['ban'], brief='Kicks the specified user.')
     @commands.has_permissions(kick_members = True)
     async def Ban(self, ctx, member: discord.Member, *, reason= 'None'):
 
