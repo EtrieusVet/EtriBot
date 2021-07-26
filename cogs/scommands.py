@@ -233,3 +233,5 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
 def setup(client):
     client.add_cog(SCommands(client))
+
+
