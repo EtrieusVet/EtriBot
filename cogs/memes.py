@@ -29,7 +29,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
-    async def Reddit(self, ctx, *, subreddit = 'memes'):
+    async def Reddit(self, ctx, *, subreddit):
 
         async with ctx.typing():
 
@@ -73,8 +73,8 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                     embed.add_field(name="Link:", value=f'[Source]({url})')
                     await ctx.send(embed=embed)
 
-                    if isinstance(texts, str) is False:
-                        await ctx.send("No text found")
+                    if not texts:
+                        await ctx.send('No text found.')
 
                     else:
                         with open("Post.txt", "w") as file:
@@ -84,6 +84,16 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                             await ctx.send(file = discord.File(file, 'Post.txt'))
                 except:
                     ctx.send("Something went wrong")
+
+    @Reddit.error
+    async def reddit_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.', inline=False)
+            embed.add_field(name='Error:', value='You did not fill the required argument.')
+            await ctx.send(embed=embed)
 
 def setup(client):
     client.add_cog(Memes(client))

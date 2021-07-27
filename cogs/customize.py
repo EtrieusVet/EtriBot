@@ -41,9 +41,9 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         await ctx.send(f'The suggestion channel is now {channel}')
 
-    @commands.command(aliases=['prefix'], brief="Changes the server prefix.")
+    @commands.command(aliases=['prefixer'], brief="Changes the server prefix.")
     @commands.has_permissions(manage_guild = True)
-    async def Prefix(self, ctx, prefix):
+    async def Prefixer(self, ctx, prefix):
 
         with open('cogs/jfiles/credentials.json', 'r') as file:
             data = json.load(file)
@@ -69,7 +69,7 @@ class Customization(commands.Cog, description="Commands that will customize the 
 
         await ctx.send(f'The prefix for the server is now {prefix}.')
 
-    @Prefix.error
+    @Prefixer.error
     async def prefix_error(self, ctx, error):
 
         if isinstance(error, commands.MissingRequiredArgument):
