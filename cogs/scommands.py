@@ -56,6 +56,14 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(kick_members = True)
     async def Kick(self, ctx, member: discord.Member, *, reason= 'None'):
 
+        if member == ctx.me:
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error type:', value='???', inline=False)
+            embed.add_field(name='Error:', value='You must kick me yourself, not use my commands against me.')
+            await ctx.send(embed=embed)
+            return
+
         if member == ctx.message.author:
 
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
@@ -72,13 +80,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             await ctx.send(embed=embed)
             return
 
-        if member.toprole == ctx.me:
 
-            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
-            embed.add_field(name='Error type:', value='???', inline=False)
-            embed.add_field(name='Error:', value='You must kick me yourself, not use my commands against me.')
-            await ctx.send(embed=embed)
-            return
 
         if ctx.me.top_role <= member.top_role:
 
