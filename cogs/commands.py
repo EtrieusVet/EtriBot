@@ -13,7 +13,7 @@ wolframkey = 'WRH7AP-KHGXRWUY6X'
 
 def get_prefix(client, message):
 
-    with open('cogs/jfiles/prefixes.json', 'r') as f:
+    with open('jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 
     return prefixes[str(message.guild.id)]
@@ -181,7 +181,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=['choice'], brief='Randomly choose selection of a maximum of 5.')
     async def Choice(self, ctx,
-                     choice1=None,
+                     choice1,
                      choice2=None,
                      choice3=None,
                      choice4=None,
@@ -209,6 +209,12 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         if isinstance(error, commands.MissingRequiredArgument):
 
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
+
+        if isinstance(error, commands.BadArgument):
+
+            embed = discord.Embed(color=discord.Color.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error Type:', value='Missing required argument.')
             await ctx.send(embed=embed)
 

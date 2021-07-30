@@ -6,6 +6,7 @@ import json
 import requests
 import asyncpraw
 
+
 class Memes(commands.Cog, description="Commands that are meme related."):
 
     def __init__(self, client):
