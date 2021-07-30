@@ -1,5 +1,9 @@
 {
     "David": {
         "Password": "Et"
+    },
+    "Account": {
+        "Name": "David",
+        "Password": "Et"
     }
 }
