@@ -1,6 +1,5 @@
 {
-    "Account": {
-        "Password": "Vet",
-        "Username": "Etrieus"
+    "Etrieus": {
+        "Password": "Vet"
     }
 }
