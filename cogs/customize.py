@@ -18,6 +18,7 @@ class Customization(commands.Cog, description="Commands that will customize the 
     @commands.has_permissions(manage_guild = True)
     async def SetSuggestion(self, ctx, channel: discord.TextChannel):
 
+        await ctx.message.delete()
         with open('cogs/jfiles/credentials.json', 'r') as file:
             data = json.load(file)
             token = data['Github']['Token']

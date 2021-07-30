@@ -56,6 +56,8 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(kick_members = True)
     async def Kick(self, ctx, member: discord.Member, *, reason= 'None'):
 
+        await ctx.message.delete()
+
         if member == ctx.me:
 
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
@@ -101,6 +103,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(ban_members = True)
     async def Ban(self, ctx, member: discord.Member, *, reason= 'None'):
 
+        await ctx.message.delete()
         if member == ctx.message.author:
 
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
@@ -204,6 +207,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(manage_messages = True)
     async def Mute(self, ctx, member: discord.Member, *, reason = None):
 
+        await ctx.message.delete()
         mute_role = discord.utils.get(ctx.guild.roles, name = 'Muted')
 
         if not mute_role:
@@ -228,6 +232,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             await member.add_roles(mute_role, reason=reason)
             await ctx.send(embed=embed)
             await self.client.delete_message(ctx.message)
+
     @Mute.error
     async def mute_error(self, ctx, error):
 
@@ -257,6 +262,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(manage_messages = True)
     async def Unmute(self, ctx, member: discord.Member):
 
+        await ctx.message.delete()
         mute_role = discord.utils.get(ctx.guild.roles, name = 'Muted')
 
         if mute_role not in member.roles:
@@ -300,6 +306,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(manage_guild=True)
     async def UltraPing(self, ctx, member: discord.Member = None, *, num):
 
+        await ctx.message.delete()
         channel = discord.utils.get(member.guild.channels, name='autopinger')
         i = 0
         limit = num

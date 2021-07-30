@@ -31,6 +31,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member):
 
+        await ctx.message.delete()
         pfp = member.avatar_url
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at, title="User License")
         embed.set_thumbnail(url=pfp)
@@ -61,6 +62,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=["dm"], brief="Sends a DM to the user.")
     async def DM(self, ctx, member: discord.Member, *, phrase):
+
+        await ctx.message.delete()
         await member.send(f'{ctx.author}: {phrase}')
 
     @DM.error
@@ -75,6 +78,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=["?", "ques"], brief="This answers your fate.")
     async def Question(self, ctx, *, que):
+
+        await ctx.message.delete()
 
         response = [
             "It is certain.",
@@ -117,6 +122,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=["suggest"], brief="Sends a suggestion to the suggestion channel.")
     async def Suggest(self, ctx, *, suggestion):
 
+        await ctx.message.delete()
+
         with open('cogs/jfiles/servers.json', 'r') as f:
             servers = json.load(f)
 
@@ -141,6 +148,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=['search'], brief="Searches the input into Wolframalpha.")
     async def Search(self, ctx, *, input):
 
+        await ctx.message.delete()
+
         wolf_client = wolframalpha.Client(wolframkey)
         query = input
         url = f"https://api.wolframalpha.com/v1/result?appid=WRH7AP-KHGXRWUY6X&i={query}"
@@ -153,6 +162,9 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
     @commands.command(aliases=["%"], brief="Shows a random percentage integer.")
     async def Percentage(self, ctx):
+
+        await ctx.message.delete()
+
         if ctx.author.id == 744170833324408903:
 
             percent = random.randint(80, 100)
@@ -177,6 +189,8 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command()
     async def E(self, ctx):
 
+        await ctx.message.delete()
+
         await ctx.send("E")
 
     @commands.command(aliases=['choice'], brief='Randomly choose selection of a maximum of 5.')
@@ -192,7 +206,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
                      choice9=None,
                      choice10=None):
 
-
+        await ctx.message.delete()
         list = [choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8, choice9, choice10]
         checked_list=[x for x in list if x]
         chosen = random.choice(checked_list)
