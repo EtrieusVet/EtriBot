@@ -203,6 +203,15 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name='Chosen:', value=chosen)
         await ctx.send(embed=embed)
 
+    @Choice.error
+    async def choice_error(self, ctx, error):
+
+        if isinstance(error, commands.MissingRequiredArgument):
+
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error Type:', value='Missing required argument.')
+            await ctx.send(embed=embed)
+
 
 
 def setup(client):
