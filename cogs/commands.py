@@ -179,6 +179,31 @@ class Commands(commands.Cog, description="Commands that are for general purposes
 
         await ctx.send("E")
 
+    @commands.command(aliases=['choice'], brief='Randomly choose selection of a maximum of 5.')
+    async def Choice(self, ctx,
+                     choice1=None,
+                     choice2=None,
+                     choice3=None,
+                     choice4=None,
+                     choice5=None,
+                     choice6=None,
+                     choice7=None,
+                     choice8=None,
+                     choice9=None,
+                     choice10=None):
+
+
+        list = [choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8, choice9, choice10]
+        checked_list=[x for x in list if x]
+        chosen = random.choice(checked_list)
+        separator = ', '
+        seperated = separator.join(checked_list)
+        embed = discord.Embed(title='Choices', color=discord.Colour.green(), timestamp=ctx.message.created_at)
+        embed.add_field(name='Choices:', value=seperated, inline=False)
+        embed.add_field(name='Chosen:', value=chosen)
+        await ctx.send(embed=embed)
+
+
 
 def setup(client):
     client.add_cog(Commands(client))

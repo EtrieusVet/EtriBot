@@ -7,11 +7,11 @@ import os
 from pretty_help import PrettyHelp
 from github import Github
 
+
 # Variables
 
 
 def get_prefix(client, message):
-
     with open('cogs/jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 
@@ -26,15 +26,13 @@ intents = discord.Intents(messages=True,
 client = commands.Bot(command_prefix=get_prefix,
                       intents=intents,
                       help_command=PrettyHelp(color=discord.Color.dark_gray(),
-                      active_time=(float('inf'))))
+                                              active_time=(float('inf'))))
 
 with open('cogs/jfiles/credentials.json', 'r') as file:
-
     data = json.load(file)
     token = data['Github']['Token']
 
 git = Github(login_or_token=token)
-
 
 
 ### Events ###
@@ -46,7 +44,6 @@ async def on_ready():
 
 @client.event
 async def on_guild_join(guild):
-
     with open('cogs/jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 
@@ -66,7 +63,6 @@ async def on_guild_join(guild):
 
 @client.event
 async def on_guild_remove(guild):
-
     with open('cogs/jfiles/servers.json', 'r') as f:
         prefixes = json.load(f)
 
@@ -81,6 +77,7 @@ async def on_guild_remove(guild):
     repo = git.get_repo("EtrieusVet/EtriBot")
     contents = repo.get_contents('cogs/jfiles/servers.json')
     repo.update_file(contents.path, 'On Join', servers, contents.sha, branch='main')
+
 
 @client.event
 async def on_message(message):
