@@ -18,7 +18,10 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(manage_messages=True)
     async def Clear(self, ctx, amount: int):
 
-        await ctx.channel.purge(limit=amount+1)
+        embed = discord.Embed(color=discord.Colour.green(), timestamp=ctx.message.created_at, title='Success')
+        embed.add_field(name='Messages cleared:', value=amount, inline=False)
+        embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
+        await ctx.send(embed=embed)
 
     @Clear.error
     async def clear_error(self, ctx, error):
@@ -96,6 +99,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             embed = discord.Embed(color=discord.Color.green(), timestamp=ctx.message.created_at, title='Success!')
             embed.add_field(name='User:', value=f'{member.mention} has been kicked!', inline=False)
             embed.add_field(name='Reason:', value=reason)
+            embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
             await member.kick(reason=reason)
             await ctx.send(embed=embed)
 
@@ -140,6 +144,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             embed = discord.Embed(color=discord.Color.green(), timestamp=ctx.message.created_at, title='Success!')
             embed.add_field(name='User:', value=f'{member.mention} has been banned!', inline=False)
             embed.add_field(name='Reason:', value=reason)
+            embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
             await member.kick(reason=reason)
             await ctx.send(embed=embed)
 
@@ -229,6 +234,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
             embed = discord.Embed(color=discord.Colour.green(), title='Success!')
             embed.add_field(name='Muted:', value=f'{member.mention}', inline=False)
             embed.add_field(name='Reason:', value=reason)
+            embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
             await member.add_roles(mute_role, reason=reason)
             await ctx.send(embed=embed)
             await self.client.delete_message(ctx.message)
@@ -275,6 +281,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
         else:
             embed = discord.Embed(color=discord.Colour.green(), title='Success!')
             embed.add_field(name='Unmuted:', value=f'{member.mention}', inline=False)
+            embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
             await member.remove_roles(mute_role)
             await ctx.send(embed=embed)
 
@@ -283,6 +290,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if isinstance(error, commands.MissingPermissions):
 
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Missing required permission.', inline=False)
             embed.add_field(name='Missing permissions:', value='Manage messages')
@@ -290,6 +298,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if isinstance(error, commands.MissingRequiredArgument):
 
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Missing required argument.', inline=False)
             embed.add_field(name='Error', value='You did not fill in the required argument.')
@@ -297,6 +306,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if isinstance(error, commands.BadArgument):
 
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Color.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Bag argument.', inline=False)
             embed.add_field(name='Error:', value='I could not process that.')
@@ -328,12 +338,15 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if isinstance(error, commands.MissingPermissions):
 
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Missing required permission.', inline=False)
             embed.add_field(name='Missing roles:', value='Manage guild')
             await ctx.send(embed=embed)
 
         if isinstance(error, commands.MissingRequiredArgument):
+
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Missing required argument.', inline=False)
             embed.add_field(name='Error:', value='You did not fill in the required argument.')
@@ -341,6 +354,7 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
 
         if isinstance(error, commands.BadArgument):
 
+            await ctx.message.delete()
             embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error type:', value='Bad argument.', inline=False)
             embed.add_field(name='Error:', value='I could not process that.')
