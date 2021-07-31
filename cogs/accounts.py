@@ -21,22 +21,31 @@ class Accounts(commands.Cog, description='These are for Etrieus but still availa
         with open('cogs/jfiles/accounts.json', 'r') as f:
             profiles = json.load(f)
 
-        profiles[username] = password
+        if username in profiles:
 
-        with open('cogs/jfiles/accounts.json', 'w') as f:
-            json.dump(profiles, f, indent=4)
+            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
+            embed.add_field(name='Error type:', value='Account duplication.', inline=False)
+            embed.add_field(name='Error:', value='This username already exists.')
+            await ctx.send(embed=embed)
 
-        with open('cogs/jfiles/accounts.json', 'r') as f:
-            accounts = f.read()
+        else:
 
-        repo = git.get_repo("EtrieusVet/EtriBot")
-        contents = repo.get_contents('cogs/jfiles/accounts.json')
-        repo.update_file(contents.path, 'On Join', accounts, contents.sha, branch='main')
+            profiles[username] = password
 
-        embed = discord.Embed(color=discord.Color.green(), timestamp=ctx.message.created_at, title='Success')
-        embed.add_field(name='Status:', value='Account created successfully!', inline=False)
-        embed.add_field(name='Account creation by:', value=f'{ctx.message.author.mention}')
-        await ctx.send(embed=embed)
+            with open('cogs/jfiles/accounts.json', 'w') as f:
+                json.dump(profiles, f, indent=4)
+
+            with open('cogs/jfiles/accounts.json', 'r') as f:
+                accounts = f.read()
+
+            repo = git.get_repo("EtrieusVet/EtriBot")
+            contents = repo.get_contents('cogs/jfiles/accounts.json')
+            repo.update_file(contents.path, 'On Join', accounts, contents.sha, branch='main')
+
+            embed = discord.Embed(color=discord.Color.green(), timestamp=ctx.message.created_at, title='Success')
+            embed.add_field(name='Status:', value='Account created successfully!', inline=False)
+            embed.add_field(name='Account creation by:', value=f'{ctx.message.author.mention}')
+            await ctx.send(embed=embed)
 
     @Register.error
     async def register_error(self, ctx, error):
