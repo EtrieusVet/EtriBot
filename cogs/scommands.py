@@ -21,8 +21,9 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
         embed = discord.Embed(color=discord.Colour.green(), timestamp=ctx.message.created_at, title='Success')
         embed.add_field(name='Messages cleared:', value=amount, inline=False)
         embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
-        await ctx.purge(limit=amount)
+        await ctx.purge(limit=amount+1)
         await ctx.send(embed=embed)
+
 
     @Clear.error
     async def clear_error(self, ctx, error):
