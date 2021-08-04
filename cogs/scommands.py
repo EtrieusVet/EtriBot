@@ -18,13 +18,11 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.has_permissions(manage_messages=True)
     async def Clear(self, ctx, amount: int):
 
-        await ctx.purge(limit=amount+1)
         embed = discord.Embed(color=discord.Colour.green(), timestamp=ctx.message.created_at, title='Success')
         embed.add_field(name='Messages cleared:', value=amount, inline=False)
         embed.add_field(name='SCommand called by:', value=f'{ctx.message.author.mention}')
+        await ctx.channel.purge(limit=amount+1)
         await ctx.send(embed=embed)
-
-
 
     @Clear.error
     async def clear_error(self, ctx, error):
@@ -214,7 +212,6 @@ class SCommands(commands.Cog, description="Commands for people with permissions.
     @commands.command(aliases=['mute', 'Silence', 'silence'])
     @commands.has_permissions(manage_messages = True)
     async def Mute(self, ctx, member: discord.Member, *, reason = None):
-
 
         await ctx.message.delete()
         mute_role = discord.utils.get(ctx.guild.roles, name = 'Muted')
