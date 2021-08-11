@@ -233,6 +233,23 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             await ctx.send(embed=embed)
 
 
+    @commands.command()
+    async def Test(self, ctx):
+
+
+        await ctx.send('React with 1\N{combining enclosing keycap}')
+
+        def check(reaction, user):
+            return user == ctx.message.author and str(reaction.emoji) == '1️⃣'
+
+
+        try:
+            reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)
+        except asyncio.TimeoutError:
+            await ctx.send('Time out')
+        else:
+            await ctx.send('1\N{combining enclosing keycap}')
+
 
 def setup(client):
     client.add_cog(Commands(client))

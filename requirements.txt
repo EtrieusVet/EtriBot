@@ -1,5 +1,5 @@
 discord-pretty-help
-discord
+-U git+https://github.com/Rapptz/discord.py
 better-profanity
 wikipedia
 wolframalpha
