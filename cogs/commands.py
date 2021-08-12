@@ -8,6 +8,9 @@ import random
 import discord
 from discord.ext import commands
 from EtriBot import client
+import time
+import dis
+
 
 wolframkey = 'WRH7AP-KHGXRWUY6X'
 
@@ -19,14 +22,115 @@ def get_prefix(client, message):
     return prefixes[str(message.guild.id)]
 
 
+class Actions(discord.ui.View):
+
+    def __init__(self):
+
+        self.playerhealth = 10000
+        self.monsterhealth = 10000
+        self.playerenergy = 100
+        self.monsterenergy = 100
+        self.maxenergy = 100
+        self.maxhealth = 10000
+        self.value = None
+        super().__init__()
+
+    @discord.ui.button(label='Attack', style=discord.ButtonStyle.gray)
+    async def attack(self, button: discord.ui.Button, interaction: discord.Interaction):
+
+        self.name = interaction.user.display_name
+        self.value = 'attack'
+        self.damage = random.randint(800, 900)
+        self.chance = random.randint(1, 10)
+
+        if self.chance == 10:
+
+            self.damage *=  1.50
+            self.monsterhealth -= self.damage
+            await interaction.response.edit_message(content=f'You dealt {self.damage} critical damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+        else:
+
+            self.monsterhealth -= self.damage
+
+            await interaction.response.edit_message(content=f'You dealt {self.damage} damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+
+
+
+    @discord.ui.button(label='Special Attack', style=discord.ButtonStyle.red)
+    async def spattack(self, button: discord.ui.Button, interaction: discord.Interaction):
+        self.value = 'spattack'
+
+        self.playerenergy -= 40
+        self.chance = random.randint(1, 5)
+        self.damage = random.randint(900, 1000)
+
+        if self.chance == 1:
+
+            self.damage *= 2
+            self.monsterhealth -= self.damage
+            if self.monsterhealth <= 0:
+                self.monsterhealth = 0
+                await interaction.response.edit_message(content=f'You won!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: 0')
+            else:
+                await interaction.response.edit_message(content=f'You dealt {self.damage} critical damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+        elif self.chance == 2:
+
+            self.damage = self.damage * 0
+
+            if self.monsterhealth < 1:
+
+                await interaction.response.edit_message(content=f'You won!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: 0')
+
+            else:
+
+                await interaction.response.edit_message(content=f'Your attack failed.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+
+        else:
+
+            self.monsterhealth -= self.damage
+            if self.monsterhealth < 1:
+                await interaction.response.edit_message(content=f'You won!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: 0')
+
+            await interaction.response.edit_message(content=f'You dealt {self.damage} damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+
+
+        print(self.value)
+
+    @discord.ui.button(label='Regenerate', style=discord.ButtonStyle.green)
+    async def regeneration(self, button: discord.ui.Button, interaction: discord.Interaction):
+        self.value = 'regen'
+        self.regeneration = random.randint(600, 800)
+        self.playerhealth += self.regeneration
+        if self.playerhealth > self.maxhealth:
+            self.playerhealth = self.maxhealth
+            await interaction.response.edit_message(content=f'You regenerated {self.regeneration} health!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
+
+
 class Commands(commands.Cog, description="Commands that are for general purposes."):
 
     def __init__(self, client):
         self.client = client
 
+
     @commands.Cog.listener()
     async def on_ready(self):
         print("Commands is online")
+
+    @commands.command()
+    async def Battle(self, ctx):
+
+
+        name = ctx.author.display_name
+        view = Actions()
+        status = await ctx.send(f'You haven\'t dealt any damage yet.\n{name}\'s health: {view.playerhealth}\nMonster\'s health: {view.monsterhealth}', view=view)
+        await view.wait()
+        if view.value == 'attack':
+            pass
 
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member):
@@ -231,24 +335,6 @@ class Commands(commands.Cog, description="Commands that are for general purposes
             embed = discord.Embed(color=discord.Color.red(), timestamp=ctx.message.created_at, title='Error')
             embed.add_field(name='Error Type:', value='Missing required argument.')
             await ctx.send(embed=embed)
-
-
-    @commands.command()
-    async def Test(self, ctx):
-
-
-        await ctx.send('React with 1\N{combining enclosing keycap}')
-
-        def check(reaction, user):
-            return user == ctx.message.author and str(reaction.emoji) == '1️⃣'
-
-
-        try:
-            reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)
-        except asyncio.TimeoutError:
-            await ctx.send('Time out')
-        else:
-            await ctx.send('1\N{combining enclosing keycap}')
 
 
 def setup(client):
