@@ -6,7 +6,6 @@ import json
 import requests
 import asyncpraw
 
-
 class Memes(commands.Cog, description="Commands that are meme related."):
 
     def __init__(self, client):
@@ -30,7 +29,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
         await ctx.channel.send(embed=embed)
 
     @commands.command(brief="Shows posts from the subreddit specified.", aliases=['reddit'])
-    async def Reddit(self, ctx, *, subreddit):
+    async def Reddit(self, ctx, *, subreddit = 'memes'):
 
         async with ctx.typing():
 
@@ -41,60 +40,46 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                 await ctx.send("God forbids you to touch this subreddit you god damned subhuman trash.")
 
             else:
-                try:
-                    posts = []
-                    reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
-                                              client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
-                                              username="Etrieus",
-                                              password="Ornestrio-132",
-                                              user_agent="Etrieus"
-                                              )
-                    redditsubs = await reddit.subreddit(subreddit)
+                posts = []
+                reddit = asyncpraw.Reddit(client_id="vzt5totaF7G4T1RMg9abeQ",
+                                          client_secret="_uf6dK06Ylht_d9owY6LKwu4f804oA",
+                                          username="Etrieus",
+                                          password="Ornestrio-132",
+                                          user_agent="Etrieus"
+                                          )
+                redditsubs = await reddit.subreddit(subreddit)
 
-                    top = redditsubs.top(limit=100)
+                top = redditsubs.top(limit=100)
 
-                    async for submission in top:
+                async for submission in top:
 
-                        posts.append(submission)
+                    posts.append(submission)
 
-                    random_sub = random.choice(posts)
-                    redditor = random_sub.author
-                    name = random_sub.title
-                    url = random_sub.url
-                    embed = discord.Embed(
-                        title=name,
-                        color=discord.Color.blue()
-                    )
+                random_sub = random.choice(posts)
+                redditor = random_sub.author
+                name = random_sub.title
+                url = random_sub.url
+                embed = discord.Embed(
+                    title=name,
+                    color=discord.Color.blue()
+                )
 
-                    texts = random_sub.selftext
 
-                    embed.set_image(url=url)
-                    embed.add_field(name="Text:", value=random_sub.name)
-                    embed.add_field(name="Author:", value=redditor)
-                    embed.add_field(name="Link:", value=f'[Source]({url})')
-                    await ctx.send(embed=embed)
 
-                    if not texts:
-                        await ctx.send('No text found.')
+                embed.set_image(url=url)
+                embed.add_field(name="Text:", value=random_sub.name)
+                embed.add_field(name="Author:", value=redditor)
+                embed.add_field(name="Link:", value=f'[Source]({url})')
+                await ctx.send(embed=embed)
 
-                    else:
-                        with open("Post.txt", "w") as file:
-                            file.write(texts)
+                if random_sub.selftext is None:
+                    print("No text found")
+                else:
+                    with open("Post.txt", "w") as file:
+                        file.write(random_sub.selftext)
 
-                        with open("Post.txt", "rb") as file:
-                            await ctx.send(file = discord.File(file, 'Post.txt'))
-                except:
-                    ctx.send('Hi')
-
-    @Reddit.error
-    async def reddit_error(self, ctx, error):
-
-        if isinstance(error, commands.MissingRequiredArgument):
-
-            embed = discord.Embed(color=discord.Colour.red(), timestamp=ctx.message.created_at, title='Error')
-            embed.add_field(name='Error Type:', value='Missing required argument.', inline=False)
-            embed.add_field(name='Error:', value='You did not fill the required argument.')
-            await ctx.send(embed=embed)
+                    with open("Post.txt", "rb") as file:
+                        await ctx.send(file = discord.File(file, 'Post.txt'))
 
 def setup(client):
     client.add_cog(Memes(client))
