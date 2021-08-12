@@ -84,7 +84,7 @@ class Memes(commands.Cog, description="Commands that are meme related."):
                         with open("Post.txt", "rb") as file:
                             await ctx.send(file = discord.File(file, 'Post.txt'))
                 except:
-                    ctx.send("Something went wrong")
+                    ctx.send('Hi')
 
     @Reddit.error
     async def reddit_error(self, ctx, error):
