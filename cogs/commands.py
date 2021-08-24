@@ -21,7 +21,6 @@ def get_prefix(client, message):
 
     return prefixes[str(message.guild.id)]
 
-
 class Actions(discord.ui.View):
 
     def __init__(self):
@@ -33,6 +32,44 @@ class Actions(discord.ui.View):
         self.maxenergy = 100
         self.maxhealth = 10000
         self.value = None
+
+    def monster_ai():
+
+        if monsterhealth < 4900: # If enemy low health, focus on regenerating
+
+            chance == random.randint(1, 3) # 1/3 chance to attack rather than regenerating
+
+            if self.chance == 1: # If 1 then enemy attacks
+
+                self.chance == random.randint(1, 5) # Random value for crit chance
+
+                if self.chance == 1: # If 1 then enemy deals critical damage
+
+                    self.damage == random.randint(800, 900) # random value for damage
+                    self.damage *= 1.50
+                    self.playerhealth == self.damage
+
+                else:
+
+                    self.damage == random.randint(800, 900) # If not 1 then do normal damage
+                    self.playerhealth -= self.damage
+            else:                                               # If 2 or 3 then regenerate health
+
+                self.regeneration == random.randint(1200, 1500)
+                self.monsterhealth += self.regeneration
+        else:                                                      # If enemy not low health then this is the main action course
+
+
+            self.chance == random.randint(1, 2)        # Random chance to attack or spattack
+            if self.chance == 1:
+
+                self.damage = random.randint(800, 900)
+                self.playerhealth -= self.damage
+
+            else:
+
+                self.damage = random.randint(900, 1000)
+                self.chance = random.randint(1, 5)
         super().__init__()
 
     @discord.ui.button(label='Attack', style=discord.ButtonStyle.gray)
@@ -54,7 +91,6 @@ class Actions(discord.ui.View):
             self.monsterhealth -= self.damage
 
             await interaction.response.edit_message(content=f'You dealt {self.damage} damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
-
 
 
 
@@ -97,7 +133,7 @@ class Actions(discord.ui.View):
 
             await interaction.response.edit_message(content=f'You dealt {self.damage} damage!.\n{self.name}\'s health: {self.playerhealth}\nMonster\'s health: {self.monsterhealth}')
 
-
+        monster_ai()
 
         print(self.value)
 
@@ -135,8 +171,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
     @commands.command(aliases=["profile"], brief="Extracts information of the chosen user.")
     async def Profile(self, ctx, member: discord.Member):
 
-        await ctx.message.delete()
-        pfp = member.avatar_url
+        pfp = member.avatar.url
         embed = discord.Embed(colour=member.colour, timestamp=ctx.message.created_at, title="User License")
         embed.set_thumbnail(url=pfp)
         embed.add_field(name="Username:", value=f"{member}", inline=True)
@@ -145,7 +180,7 @@ class Commands(commands.Cog, description="Commands that are for general purposes
         embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d, %B, %Y, %I:%M %p UTC"), inline=False)
         embed.add_field(name=f"Requested by:", value=f"{ctx.message.author.mention}")
         embed.add_field(name="ID:", value=f"{ctx.author.id}")
-        await ctx.channel.send(content=None, embed=embed)
+        await ctx.send(embed=embed)
 
     @Profile.error
     async def profile_error(self, ctx, error):
